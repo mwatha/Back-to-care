@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Back to care - please login</title>
+<style>
+  #user_password { width: 90%; }
+  #user_username { width: 90%; }
+  #submit { 
+    float: right; 
+    padding-right: 20px;
+  }
+</style>
+<%= stylesheet_link_tag "login" %>
+
+</head>
+
+<body>
+
+<%= render(:partial => "/home/main_header") %><br />
+
+<div id = "main-content">
+ <div id = 'headline-container'>Baobab Health Trust Central Login</div>
+ <div id = "image-logo">
+  <%= image_tag("keys.png" ,:id => "keys")%>
+ </div>
+  <div id = "login-box">
+    <form method = "post">
+      <table id = "login-box-table">
+        <tr><td>username:</td><td><%=text_field(:user, :username, 
+            :textCase => "lower") %>
+        </td><tr>
+        <tr><td>password:</td><td><%=password_field(:user, :password,
+            :textCase => "lower") %>
+        </td><tr>
+        <tr><td>&nbsp;</td><td id ="submit"><%= submit_tag value="Submit"%></td><tr>
+      </table>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
