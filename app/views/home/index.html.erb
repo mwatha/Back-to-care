@@ -1,2 +1,79 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<html>                                                                          
+<head>                                                                          
+<title>Back to care</title>                                      
+<style>    
+  ul {
+    color: #505050;
+    line-height: 1.5em;
+  }        
+
+  #content-right a {
+    color: green;
+    text-decoration: none;
+    font-family: Verdana,Tahoma,Arial;
+    font-size: 10px;
+    font-weight: normal;
+  } 
+                                                            
+  #content-right li {
+    line-height: 0.5em;
+  }
+</style>                                                                        
+<%= stylesheet_link_tag "home" %>                                              
+                                                                                
+</head>                                                                         
+                                                                                
+<body>
+
+
+<%= render(:partial => "/home/main_header") %><br />
+
+<div id = "headline-container">
+Home
+</div>
+
+<div id = "main-content">
+
+  <div id = "content-left">
+Welcome to Back to care. This is where you can log and follow up patients 
+across Baobab Health's ART system, patients who have missed 
+there appointment dates or have defaulted.<p />
+If you are looking for assistance you can 
+click on the 'Help' menu option at the top.
+  </div>
+
+  <div id = "content-right">
+    <div id = "latest-outcomes">Latest outcomes</div>
+      <ul>
+        <li>
+          <a href="">Defaulters</a>
+          (<%=(Date.today - 3.months).strftime("%d %b %Y")%>
+          &nbsp;to&nbsp;<%=Date.today.strftime("%d %b %Y")%>)
+          <p>Patients who have not come to the clinic for 3 months</p>
+        </li><br />
+        <li>
+          <a href="">Missed appointments</a>
+          (<%=(Date.today - 2.months).strftime("%d %b %Y")%>
+          &nbsp;to&nbsp;<%=Date.today.strftime("%d %b %Y")%>)
+          <p>Patients who have missed their appointments days and have not come since</p>
+        </li><br />
+        <li>
+          <a href="">Transfer out</a>
+          (<%=(Date.today - 1.month).strftime("%d %b %Y")%>
+          &nbsp;to&nbsp;<%=Date.today.strftime("%d %b %Y")%>)
+          <p>Patients who have transfered to other clinics for treatment</p>
+        </li><br />
+        <li>
+          <a href="">Died</a>
+          (<%=(Date.today - 2.months).strftime("%d %b %Y")%>
+          &nbsp;to&nbsp;<%=Date.today.strftime("%d %b %Y")%>)
+          <p>Patients who have been reported as "Dead"</p>
+        </li><br />
+      </ul>
+  </div>
+
+</div>
+
+
+</body>
+</html>

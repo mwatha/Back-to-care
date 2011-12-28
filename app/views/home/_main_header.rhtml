@@ -2,13 +2,36 @@
 <head>
 <%= stylesheet_link_tag "main_header" %>
 <title>Back to care</title>
+<style>
+  #user {
+    float: right;
+    padding-right: 20px;
+    font-weight: bold;
+    font-size: 8pt;
+  }
 
+  a {
+    text-decoration: none;
+    list-style-type: none;
+    white-space: nowrap;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-right: 8px;
+  }
+</style>
 
 </head>
 
 <body>
 
-<div id = 'top-menu'>Lighthouse - Back to care patient tracking system</div>
+<div id = 'top-menu'>Lighthouse - Back to care patient tracking system
+<%if User.current_user %>                                                       
+  <font id ="user">
+    Logged in as: <font style="color: #EE8206;"><%=User.current_user.username%></font>&nbsp;|&nbsp;
+    <font id="logout"><a href="/user/logout">Logout</a></font>
+  </font>         
+<%end%>                                                                         
+</div>                                                                      
 <div id = 'header'></div>
 
 

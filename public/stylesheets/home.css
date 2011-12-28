@@ -1,0 +1,51 @@
+body {
+  background: url("/images/bg.png");
+}
+
+#login-box {
+  width: 280px;
+  background-color: #FFFFFF;
+  border: 1px solid #AAAAAA;
+  text-align: center;
+  right: 10px;
+  float: right;
+}
+
+#main-content {
+}
+
+
+#headline-container {
+  margin-bottom: 5px;
+  border-bottom: 1px solid #899989;
+  font-family: Tahoma,Verdana,sans-serif;
+  margin-left: 0px;
+  margin-right: 0;
+}
+
+#content-left {
+  color: #404040;
+  font-family: Verdana,Tahoma,Arial;
+  font-size: 12px;
+  width: 45%;
+  float: left;
+}
+
+#content-right {
+  color: #404040;
+  font-family: Verdana,Tahoma,Arial;
+  font-size: 12px;
+  width: 45%;
+  background-color: #F6F6F6;
+  border: 1px solid #E4E4E4;
+  color: #505050;
+  line-height: 1.5em;
+  margin-bottom: 10px;
+  padding: 6px;
+  float: right;
+}
+
+#latest-outcomes {
+  border-bottom: 1px dotted #696969;
+  color: #EE8206;
+}

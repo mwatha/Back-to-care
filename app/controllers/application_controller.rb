@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 			session[:current_action] = action_name 
 			session[:current_controller] = controller_name
       unless session[:user_id].nil?
-        User.current_user = User.find_user_id(session[:user_id]) 
+        User.current_user = User.find(session[:user_id]) 
       end
     end
     if session[:user_id].blank?
