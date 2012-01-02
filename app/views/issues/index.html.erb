@@ -40,7 +40,12 @@
     padding-right: 21px;
   }
 
-
+  #start_year_ , #start_year_-mm , #start_year_-dd, 
+  #end_year_ , #end_year_-mm , #end_year_-dd {
+    visibility:hidden;
+    position: absolute;
+    bottom: 0px;
+  }
 </style>                                                                        
 <%= stylesheet_link_tag "home" %>                                              
 <%= stylesheet_link_tag "issues" %>                                              
@@ -81,6 +86,8 @@
 
     start_date = new Date(parseFloat(start_year),parseFloat(start_month) - 1,parseFloat(start_day));
     end_date = new Date(parseFloat(end_year),parseFloat(end_month) - 1,parseFloat(end_day));
+    document.getElementById("start_date_disabled").value = formatDate(start_date,'yyyy-mm-dd');
+    document.getElementById("end_date_disabled").value = formatDate(start_date,'yyyy-mm-dd');
 
     title = document.getElementById('headline-container');
     title.innerHTML = type + " (From " + formatDate(start_date,'yyyy-mm-dd') + " to " + formatDate(end_date,'yyyy-mm-dd') + ")";
@@ -117,8 +124,10 @@
                         "Died"
                       ]) 
   %>
-  <p>From:<%= unobtrusive_date_picker :start_year,nil,:start_year => 1900 ,:end_year => Date.today.year %></p>
-  <p>To:<%="&nbsp;"*5%><%= unobtrusive_date_picker :end_year,nil,:end_year => 1900 ,:end_year => Date.today.year %></p>
+  <p>From:<input id="start_date_disabled" type="text" size="10" name="start_date_disabled" disabled="disabled">
+  <%= unobtrusive_date_picker :start_year,nil,:start_year => 1900 ,:end_year => Date.today.year %></p>
+  <p>To:<%="&nbsp;"*5%><input id="end_date_disabled" type="text" size="10" name="end_date_disabled" disabled="disabled">
+  <%= unobtrusive_date_picker :end_year,nil,:end_year => 1900 ,:end_year => Date.today.year %></p>
   <p id="apply_queries"><a href="javascript:applyQuery();" id="apply_query">Apply</a>&nbsp;&nbsp;
   <!--a href="javascript:applyQuery();" id="clear_query">Clear</a></p-->
   <hr />
