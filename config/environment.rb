@@ -43,3 +43,23 @@ end
 
 bart = YAML.load(File.open(File.join(RAILS_ROOT, "config/database.yml"), "r"))['bart']
 User.establish_connection(bart)
+Observation.establish_connection(bart)
+Encounter.establish_connection(bart)
+EncounterType.establish_connection(bart)
+ConceptName.establish_connection(bart)
+
+
+UserRole.establish_connection(bart)
+Relationship.establish_connection(bart)
+RelationshipType.establish_connection(bart)
+Program.establish_connection(bart)
+ProgramWorkflow.establish_connection(bart)
+ProgramWorkflowState.establish_connection(bart)
+Person.establish_connection(bart)
+PersonName.establish_connection(bart)
+PersonAttributeType.establish_connection(bart)
+PersonAttribute.establish_connection(bart)
+PersonAddress.establish_connection(bart)
+Patient.establish_connection(bart)
+PatientIdentifier.establish_connection(bart)
+PatientIdentifierType.establish_connection(bart)

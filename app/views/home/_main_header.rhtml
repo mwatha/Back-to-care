@@ -28,6 +28,8 @@
 <%if User.current_user %>                                                       
   <font id ="user">
     Logged in as: <font style="color: #EE8206;"><%=User.current_user.username%></font>&nbsp;|&nbsp;
+    <font id="home"><a href="/">Home</a></font>&nbsp;|&nbsp;
+    <font id="account"><a href="/">Account</a></font>&nbsp;|&nbsp;
     <font id="logout"><a href="/user/logout">Logout</a></font>
   </font>         
 <%end%>                                                                         

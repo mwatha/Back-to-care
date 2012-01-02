@@ -1,0 +1,152 @@
+<html>
+<head>
+
+
+
+<style>
+#search_results {
+  position: absolute;
+  top: 65px;
+  width: 100%;
+  border-collapse: collapse;
+  clear: both;
+  margin: 0 auto;
+  border-spacing: 0;
+}
+
+#search_results_info {
+  position: absolute;
+  bottom: 0px;
+  color: #555555;
+  font-size: 0.8em;
+  padding-left: 30px;
+}
+
+#search_results_length , #search_results_filter {
+  font-size: 0.8em;
+}
+
+#search_results_length {
+  padding-left: 30px;
+}
+
+#search_results_filter {
+  padding-right: 30px;
+}
+
+#table-content {
+  border-radius: 0px 0px 15px 15px;
+  background-color: lightgrey;
+  -moz-border-radius: 20px;  
+ border-style: solid;
+ border-width: 1px;
+ overflow: auto;
+}
+
+th {
+color: #555555;
+font-weight: normal;
+cursor: pointer;
+text-align: left;
+font-style: normal;
+font-size: 0.9em;
+}
+
+#table_head {
+ background-color: white;
+ border-style: solid;
+ border-width: 1px 0px 1px 0px;
+}
+
+.patient_info , td {
+  background-color: #C4FFC4;
+}
+
+#th1 {
+  width:250px !important;
+}
+
+#th2 {
+  width:200px !important;
+}
+
+#th3 {
+  width:200px !important;
+}
+
+#th4 {
+  width:85px !important;
+}
+
+#th5 {
+  width:150px !important;
+}
+
+#th6 {
+  width:150px !important;
+}
+
+#th7 {
+  width:100px !important;
+}
+
+#th8 {
+  width:85px !important;
+}
+
+</style>
+
+<%=javascript_include_tag "prototype"%>
+<%=javascript_include_tag "jquery_data_table" %>
+<%=javascript_include_tag "jquery.dataTables.min" %>
+
+<%= stylesheet_link_tag "demo_table" %>                                         
+<%= stylesheet_link_tag "demo_table_jui" %>                                     
+<%= stylesheet_link_tag "demo_page" %> 
+<script>
+function dataT(){                                                               
+ $('#search_results').dataTable();                                                  
+}
+
+
+</script>
+</head>
+
+<body>
+<div id="table-content">
+<table id="search_results">
+<thead>
+<tr id = 'table_head'>
+  <th id="th1"><%="&nbsp;"*2%>National ID</th>
+  <th id="th2" style="width:200px;">First name</th>
+  <th id="th3" style="width:200px;">Last name</th>
+  <th id="th4" style="width:85px;">Sex</th>
+  <th id="th5" style="width:150px;">DOB</th>
+  <th id="th6" style="width:150px;">Visit date</th>
+  <th id="th7" style="width:100px;">Outcome</th>
+  <th id="th8" style="width:150px;">Appointment date</th>
+</tr>
+</thead>
+<tbody><!--
+<tr class="patient_info">
+  <td><%="&nbsp;"*2%></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr> -->
+<%=@html%>
+</tbody>
+</table>
+</div>
+
+</body>
+</html>
+
+
+<script>
+  dataT();
+</script>

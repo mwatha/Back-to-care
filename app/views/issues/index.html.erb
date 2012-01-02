@@ -1,0 +1,159 @@
+<html>                                                                          
+<head>                                                                          
+<title>Back to care</title>                                      
+<style>    
+  span {
+    color: #EE8206;
+    font-family: Verdana,Tahoma,Arial;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+  }
+
+  #side-content {
+    font-family: Verdana,Tahoma,Arial;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  #apply_queries {
+  }
+
+  #apply_query {
+    color: #EE8206 !important;
+    font-family: Verdana,Tahoma,Arial;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+  }
+
+  #clear_query {
+    color: #EE8206 !important;
+    font-family: Verdana,Tahoma,Arial;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+  }
+
+  #apply_queries {
+    text-align: right;
+    padding-right: 21px;
+  }
+
+
+</style>                                                                        
+<%= stylesheet_link_tag "home" %>                                              
+<%= stylesheet_link_tag "issues" %>                                              
+<%= stylesheet_link_tag "disable_page" %>                                              
+<%= javascript_include_tag "dateformat" %>
+<%= javascript_include_tag "prototype"%>                                        
+<%= javascript_include_tag "disable_page"%>                                        
+<%= unobtrusive_datepicker_includes %>
+                                        
+<script>
+  function findPatients(heading) {
+    title = document.getElementById('headline-container');
+    title.innerHTML = heading;
+    showLayer();
+  }
+
+  function search() {
+    var search_str = document.getElementById("name").value;
+    var sex = document.getElementById("gender").value;                      
+    var url = "/issues/quick_search/?search_str=" + search_str + "&gender=" + sex;
+    if (!search_str == "" && !sex == ""){                                                       
+      response = new Ajax.Request(url,{method:'get',onSuccess: function(transport){
+        text = transport.responseText;                         
+        document.getElementById("table-content").innerHTML = text;           
+        dataT();   
+      }});                                                                        
+    }                                                                
+  }
+
+  function applyQuery() {
+    type = document.getElementById("report_type").value;
+    start_year = document.getElementById("start_year_").value;
+    start_month = document.getElementById("start_year_-mm").value;
+    start_day = document.getElementById("start_year_-dd").value;
+    end_year = document.getElementById("end_year_").value;
+    end_month = document.getElementById("end_year_-mm").value;
+    end_day = document.getElementById("end_year_-dd").value;
+
+    start_date = new Date(parseFloat(start_year),parseFloat(start_month) - 1,parseFloat(start_day));
+    end_date = new Date(parseFloat(end_year),parseFloat(end_month) - 1,parseFloat(end_day));
+
+    title = document.getElementById('headline-container');
+    title.innerHTML = type + " (From " + formatDate(start_date,'yyyy-mm-dd') + " to " + formatDate(end_date,'yyyy-mm-dd') + ")";
+
+    var url = "/issues/report/?id=" + type + "&start_date=" + formatDate(start_date,'yyyy-mm-dd') + "&end_date=" + formatDate(end_date,'yyyy-mm-dd');
+    if (!type == ""){                                                       
+      response = new Ajax.Request(url,{method:'get',onSuccess: function(transport){
+        text = transport.responseText;                         
+        document.getElementById("table-content").innerHTML = text;           
+        dataT();   
+      }});                                                                        
+    }                                                                
+  }
+</script>                                                                                
+</head>                                                                         
+                                                                                
+<body id = "main_body">
+
+
+<%= render(:partial => "/home/main_header") %><br />
+
+<div id = "headline-container">
+<%= @issue %>
+</div>
+
+<div id = "main-content">
+
+<div id = "side-content">
+  <p><span>Reports</span></p>
+  Select report:&nbsp;<%= select_tag :report_type, 
+    options_for_select(["","Defaulters", 
+                        "Missed appointments",
+                        "Transfer out",
+                        "Died"
+                      ]) 
+  %>
+  <p>From:<%= unobtrusive_date_picker :start_year,nil,:start_year => 1900 ,:end_year => Date.today.year %></p>
+  <p>To:<%="&nbsp;"*5%><%= unobtrusive_date_picker :end_year,nil,:end_year => 1900 ,:end_year => Date.today.year %></p>
+  <p id="apply_queries"><a href="javascript:applyQuery();" id="apply_query">Apply</a>&nbsp;&nbsp;
+  <!--a href="javascript:applyQuery();" id="clear_query">Clear</a></p-->
+  <hr />
+  <p><a href="javascript:findPatients('Enter patient\'s name to find');">Find patient(s)</a>
+</div>
+
+<div id = "content-view">
+  <%= render(:partial => "quick_search", :object => @data) %>
+</div>
+
+</div>
+
+
+
+<div id="shadow" class="opaqueLayer"> </div>
+<div id="question" class="questionLayer" style="font-size: 0.9em;">
+  <br />
+    Select patient's gender:&nbsp;<%= select_tag "gender", options_for_select(["","Female", "Male"]) %>
+    <p>Start typing patient's name:&nbsp;<%= text_field_tag :name ,
+                                             nil , :onkeyup => "search();"%>
+    </p>
+  <br />
+  <input type="button" onclick="hideLayer();" value="Close" />
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
