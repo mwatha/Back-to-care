@@ -56,6 +56,16 @@
 <%= unobtrusive_datepicker_includes %>
                                         
 <script>
+
+  function addAttributes() {
+    document.getElementById("start_year_").setAttribute("onchange","syncDateFields();");
+    document.getElementById("start_year_-mm").setAttribute("onchange","syncDateFields();");
+    document.getElementById("start_year_-dd").setAttribute("onchange","syncDateFields();");
+    document.getElementById("end_year_").setAttribute("onchange","syncDateFields();");
+    document.getElementById("end_year_-mm").setAttribute("onchange","syncDateFields();");
+    document.getElementById("end_year_-dd").setAttribute("onchange","syncDateFields();");
+  }
+
   function findPatients(heading) {
     title = document.getElementById('headline-container');
     title.innerHTML = heading;
@@ -73,6 +83,23 @@
         dataT();   
       }});                                                                        
     }                                                                
+  }
+
+  function syncDateFields() {
+    try {
+    start_year = document.getElementById("start_year_").value;
+    start_month = document.getElementById("start_year_-mm").value;
+    start_day = document.getElementById("start_year_-dd").value;
+    end_year = document.getElementById("end_year_").value;
+    end_month = document.getElementById("end_year_-mm").value;
+    end_day = document.getElementById("end_year_-dd").value;
+
+    start_date = new Date(parseFloat(start_year),parseFloat(start_month) - 1,parseFloat(start_day));
+    end_date = new Date(parseFloat(end_year),parseFloat(end_month) - 1,parseFloat(end_day));
+
+    document.getElementById("start_date_disabled").value = formatDate(start_date,"yyyy-mm-dd");
+    document.getElementById("end_date_disabled").value = formatDate(end_date,"yyyy-mm-dd");
+    }catch(e){}
   }
 
   function applyQuery() {
@@ -104,7 +131,7 @@
 </script>                                                                                
 </head>                                                                         
                                                                                 
-<body id = "main_body">
+<body id = "main_body" onload="addAttributes();">
 
 
 <%= render(:partial => "/home/main_header") %><br />
