@@ -12,6 +12,8 @@
   clear: both;
   margin: 0 auto;
   border-spacing: 0;
+  font-family: helvetica,arial,sans-serif;
+  font-size: 14px;
 }
 
 #search_results_info {
@@ -20,6 +22,7 @@
   color: #555555;
   font-size: 0.8em;
   padding-left: 30px;
+  visibility:hidden;
 }
 
 #search_results_length , #search_results_filter {
@@ -35,11 +38,11 @@
 }
 
 #table-content {
-  border-radius: 0px 0px 15px 15px;
-  background-color: lightgrey;
-  -moz-border-radius: 20px;  
- border-style: solid;
- border-width: 1px;
+ /* border-radius: 0px 0px 15px 15px;*/
+  background-color: transparent;
+ /* -moz-border-radius: 20px;  
+ border-style: solid; 
+ border-width: 1px; */
  overflow: auto;
 }
 
@@ -50,6 +53,7 @@ cursor: pointer;
 text-align: left;
 font-style: normal;
 font-size: 0.9em;
+font-weight: bold;
 }
 
 #table_head {
@@ -63,7 +67,7 @@ font-size: 0.9em;
 }
 
 #th1 {
-  width:250px !important;
+  width:90px !important;
 }
 
 #th2 {
@@ -79,21 +83,25 @@ font-size: 0.9em;
 }
 
 #th5 {
-  width:150px !important;
-}
-
-#th6 {
-  width:150px !important;
-}
-
-#th7 {
   width:100px !important;
 }
 
-#th8 {
-  width:85px !important;
+#th6 {
+  width:100px !important;
 }
 
+#th7 {
+  width:150px !important;
+}
+
+.show_details {
+color: black;
+list-style-type: none;
+text-decoration: underline;
+font-family: helvetica,arial,sans-serif;
+font-size: 12px;
+font-weight: normal;
+}
 </style>
 
 <%=javascript_include_tag "prototype"%>
@@ -122,9 +130,8 @@ function dataT(){
   <th id="th3" style="width:200px;">Last name</th>
   <th id="th4" style="width:85px;">Sex</th>
   <th id="th5" style="width:150px;">DOB</th>
-  <th id="th6" style="width:150px;">Visit date</th>
-  <th id="th7" style="width:100px;">Outcome</th>
-  <th id="th8" style="width:150px;">Appointment date</th>
+  <th id="th6" style="width:150px;">Last visit date</th>
+  <th id="th7" style="width:100px;">&nbsp;</th>
 </tr>
 </thead>
 <tbody><!--

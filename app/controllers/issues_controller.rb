@@ -4,10 +4,11 @@ class IssuesController < ApplicationController
   end
 
   def quick_search
-    name = params[:search_str] ; gender = params[:gender].first rescue ""
-    person = PatientService.find_patients_by_name_and_gender(name , gender)
+    name = params[:search_str].strip 
+    gender = params[:gender].strip.first rescue ""
+    patients = PatientService.find_patients_by_name_and_gender(name , gender)
     @html = ""
-    person.each do | person |
+    patients.each do | person |
       demographics = PatientService.demographics(person)                                                                     
       @html+=<<EOF
 <tr class="patient_info">                                                       
@@ -16,9 +17,10 @@ class IssuesController < ApplicationController
   <td>#{demographics[:last_name]}</td>                                                                     
   <td>#{demographics[:gender]}</td>                                                                     
   <td>#{demographics[:dob]}</td>                                                                     
-  <td>&nbsp;</td>                                                                     
-  <td>&nbsp;</td>                                                                     
-  <td>&nbsp;</td>                                                                     
+  <td>#{demographics[:last_visit_date]}</td>                                                                     
+  <td><a href="/issues/show/#{person.id}" class="show_details">Show</a>|
+  <a href="/issues/sms/#{person.id}" class="show_details">Send sms</a>
+  </td>                                                                     
 </tr>                                                                           
 EOF
     end

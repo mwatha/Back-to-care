@@ -30,7 +30,7 @@ ul {
 #content-view {
   float: left;
   width: 75%;
-  height: 90%;
+  /*height: 90%;
   /*background-color: #FFFFFF;*/
   margin: 0;
   padding: 6px 10px 10px;
@@ -46,3 +46,6 @@ ul {
   word-wrap: break-word;
 }
 
+#search_results_wrapper {
+  height: 98%;
+}

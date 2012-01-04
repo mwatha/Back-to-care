@@ -46,6 +46,14 @@
     position: absolute;
     bottom: 0px;
   }
+
+#results-info {
+  text-align: left;
+  color: #555555;
+  font-size: 0.8em;
+  padding-left: 30px;
+  position: absolute;
+}
 </style>                                                                        
 <%= stylesheet_link_tag "home" %>                                              
 <%= stylesheet_link_tag "issues" %>                                              
@@ -56,6 +64,11 @@
 <%= unobtrusive_datepicker_includes %>
                                         
 <script>
+  setInterval("upDateResultsInfo();",300);
+
+  function upDateResultsInfo() {
+    document.getElementById("results-info").innerHTML = document.getElementById("search_results_info").innerHTML;
+  }
 
   function addAttributes() {
     document.getElementById("start_year_").setAttribute("onchange","syncDateFields();");
@@ -80,7 +93,7 @@
       response = new Ajax.Request(url,{method:'get',onSuccess: function(transport){
         text = transport.responseText;                         
         document.getElementById("table-content").innerHTML = text;           
-        dataT();   
+        dataT();  
       }});                                                                        
     }                                                                
   }
@@ -151,9 +164,9 @@
                         "Died"
                       ]) 
   %>
-  <p>From:<input id="start_date_disabled" type="text" size="10" name="start_date_disabled" disabled="disabled">
+  <p>From:<input id="start_date_disabled" type="text" size="10" name="start_date_disabled" disabled="disabled" value ="<%=Date.today%>">
   <%= unobtrusive_date_picker :start_year,nil,:start_year => 1900 ,:end_year => Date.today.year %></p>
-  <p>To:<%="&nbsp;"*5%><input id="end_date_disabled" type="text" size="10" name="end_date_disabled" disabled="disabled">
+  <p>To:<%="&nbsp;"*5%><input id="end_date_disabled" type="text" size="10" name="end_date_disabled" disabled="disabled" value ="<%=Date.today%>">
   <%= unobtrusive_date_picker :end_year,nil,:end_year => 1900 ,:end_year => Date.today.year %></p>
   <p id="apply_queries"><a href="javascript:applyQuery();" id="apply_query">Apply</a>&nbsp;&nbsp;
   <!--a href="javascript:applyQuery();" id="clear_query">Clear</a></p-->
@@ -179,8 +192,8 @@
   <br />
   <input type="button" onclick="hideLayer();" value="Close" />
 </div>
-
-
+<div id = "results-info">
+</div>
 </body>
 </html>
 
