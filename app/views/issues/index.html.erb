@@ -117,17 +117,21 @@
 
   function applyQuery() {
     type = document.getElementById("report_type").value;
-    start_year = document.getElementById("start_year_").value;
+    /*start_year = document.getElementById("start_year_").value;
     start_month = document.getElementById("start_year_-mm").value;
     start_day = document.getElementById("start_year_-dd").value;
     end_year = document.getElementById("end_year_").value;
     end_month = document.getElementById("end_year_-mm").value;
     end_day = document.getElementById("end_year_-dd").value;
-
+    
     start_date = new Date(parseFloat(start_year),parseFloat(start_month) - 1,parseFloat(start_day));
     end_date = new Date(parseFloat(end_year),parseFloat(end_month) - 1,parseFloat(end_day));
-    document.getElementById("start_date_disabled").value = formatDate(start_date,'yyyy-mm-dd');
-    document.getElementById("end_date_disabled").value = formatDate(start_date,'yyyy-mm-dd');
+    */
+
+    start_date = new Date(document.getElementById("start_date_disabled").value);
+    end_date = new Date(document.getElementById("end_date_disabled").value);
+    //document.getElementById("start_date_disabled").value = formatDate(start_date,'yyyy-mm-dd');
+    //document.getElementById("end_date_disabled").value = formatDate(start_date,'yyyy-mm-dd');
 
     title = document.getElementById('headline-container');
     title.innerHTML = type + " (From " + formatDate(start_date,'yyyy-mm-dd') + " to " + formatDate(end_date,'yyyy-mm-dd') + ")";
@@ -158,7 +162,8 @@
 <div id = "side-content">
   <p><span>Reports</span></p>
   Select report:&nbsp;<%= select_tag :report_type, 
-    options_for_select(["","Defaulters", 
+    options_for_select(["","On ART",
+                        "Defaulters", 
                         "Missed appointments",
                         "Transfer out",
                         "Died"

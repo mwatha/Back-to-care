@@ -1,0 +1,152 @@
+<html>                                                                          
+<head>                                                                          
+<title>Back to care</title>                                      
+<style>    
+  span {
+    color: #EE8206;
+    font-family: Verdana,Tahoma,Arial;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+  }
+
+  #side-content {
+    font-family: Verdana,Tahoma,Arial;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+#results-info {
+  text-align: left;
+  color: #555555;
+  font-size: 0.8em;
+  padding-left: 30px;
+  position: absolute;
+}
+
+#content-view {
+  background-color: #FFFFFF;
+  height: 90%;
+}
+
+#sub-content-view {
+  background-color: #FFFFDD;
+  height: 65%;
+  border: 1px dotted #696969;
+}
+
+h3 {
+  font-family: Tahoma,Verdana,Arial;
+  font-size: 12px; 
+  margin: 0 0 0.1em;
+  color: #EE8206;
+}
+
+.h3 {
+  border-style: dotted;
+  border-width: 0px 0px 1px 0px;
+  border-color: #696969;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#t_left {
+  margin-left: 10px;
+  margin-top: 10px;
+  font-family: Tahoma,Verdana,Arial;
+  font-size: 12px; 
+  width: 98%;
+  text-align: left;
+}
+
+#t_left th{
+  vertical-align: top;
+  color: #404040;
+}
+
+#t_left td{
+  vertical-align: top;
+}
+
+#controls {
+  float: right;
+  font-size: 11px; 
+  color: black;
+  text-decoration: none;
+}
+
+#controls a {
+  color: #EE8206;
+}
+
+</style>                                                                        
+<%= stylesheet_link_tag "home" %>                                              
+<%= stylesheet_link_tag "issues" %>                                              
+<%= javascript_include_tag "dateformat" %>
+<%= javascript_include_tag "prototype"%>                                        
+<%= javascript_include_tag "disable_page"%>                                        
+<%= unobtrusive_datepicker_includes %>
+                                        
+<script>
+</script>                                                                                
+</head>                                                                         
+                                                                                
+<body id = "main_body">
+
+
+<%= render(:partial => "/home/main_header") %><br />
+
+<div id = "headline-container">
+<%=@report%>
+</div>
+
+<div id = "main-content">
+  <div id = "side-content">
+      <div class="h3"><h3>SMS thread</h3></div>
+  </div>
+
+  <div id = "content-view">
+    <div id = "sub-content-view">
+      <div class="h3"><h3><%=@demographics[:national_id]%></h3></div>
+    <table id = "t_left">
+      <tr>
+        <th>Name:&nbsp;</th><td><%=@demographics[:first_name] + "&nbsp;" + @demographics[:last_name]%></td>
+        <th>Sex:&nbsp;</th><td><%=@demographics[:gender] == "F" ? "Female" : "Male"%></td>
+      </tr>
+        <th>DOB:&nbsp;</th><td><%=@demographics[:dob]%></td>
+        <th>Occupation:&nbsp;</th><td><%=@demographics[:occupation]%></td>
+      </tr>
+      <tr>
+        <th>Address:&nbsp;</th><td><%=@demographics[:current_address]%></td>
+        <th>TA:&nbsp;</th><td><%=@demographics[:ta]%></td>
+        <th>ARV number:&nbsp;</td><td><%=@demographics[:arv_number]%></td>
+      </tr>
+      <tr>
+        <th>Last visit date:&nbsp;</td><td><%=@demographics[:last_visit_date]%></td>
+        <th>Outcome:&nbsp;</td><td><%=@demographics[:latest_state]%></td>
+        <th>Latest regimen given:&nbsp;</td><td><%=@demographics[:last_regimen_given]%></td>
+      </tr>
+    </table>
+  </div>
+  <div id = "controls">
+    <a href="">Send sms</a>|
+    <a href="">Refresh sms thread</a>|
+    <a href="/issues/index">Reports</a>
+  </div>
+
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
