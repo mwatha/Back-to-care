@@ -50,7 +50,7 @@ h3 {
   margin-right: 10px;
 }
 
-#t_left {
+.t_left {
   margin-left: 10px;
   margin-top: 10px;
   font-family: Tahoma,Verdana,Arial;
@@ -59,12 +59,12 @@ h3 {
   text-align: left;
 }
 
-#t_left th{
+.t_left th{
   vertical-align: top;
   color: #404040;
 }
 
-#t_left td{
+.t_left td{
   vertical-align: top;
 }
 
@@ -108,22 +108,31 @@ h3 {
   <div id = "content-view">
     <div id = "sub-content-view">
       <div class="h3"><h3><%=@demographics[:national_id]%></h3></div>
-    <table id = "t_left">
+    <table class = "t_left">
       <tr>
         <th>Name:&nbsp;</th><td><%=@demographics[:first_name] + "&nbsp;" + @demographics[:last_name]%></td>
         <th>Sex:&nbsp;</th><td><%=@demographics[:gender] == "F" ? "Female" : "Male"%></td>
-      </tr>
         <th>DOB:&nbsp;</th><td><%=@demographics[:dob]%></td>
+      </tr>
+    <!--/table>
+    <table class = "t_left"-->
         <th>Occupation:&nbsp;</th><td><%=@demographics[:occupation]%></td>
+        <th>Land mark:&nbsp;</th><td><%=@demographics[:land_mark]%></td>
       </tr>
       <tr>
         <th>Address:&nbsp;</th><td><%=@demographics[:current_address]%></td>
-        <th>TA:&nbsp;</th><td><%=@demographics[:ta]%></td>
+        <th>Home district:&nbsp;</th><td><%=@demographics[:home_district]%></td>
         <th>ARV number:&nbsp;</td><td><%=@demographics[:arv_number]%></td>
       </tr>
+    </table>
+    <table class = "t_left">
       <tr>
         <th>Last visit date:&nbsp;</td><td><%=@demographics[:last_visit_date]%></td>
+      </tr>
+      <tr>
         <th>Outcome:&nbsp;</td><td><%=@demographics[:latest_state]%></td>
+      </tr>
+      <tr>
         <th>Latest regimen given:&nbsp;</td><td><%=@demographics[:last_regimen_given]%></td>
       </tr>
     </table>

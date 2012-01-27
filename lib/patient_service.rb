@@ -30,10 +30,10 @@ module PatientService
       :office_phone_number => self.phone_numbers(person_obj,"Office phone number") ,
       :home_phone_number => self.phone_numbers(person_obj,"Home phone number") ,
       :occupation => self.get_attribute(person_obj,"Occupation") ,
-      :ta => self.get_attribute(person_obj,"Ancestral Traditional Authority") ,
+      :home_district => self.current_address(person_obj,"home_district") ,
       :curent_place_of_residence => self.get_attribute(person_obj,"Current Place Of Residence") ,
       :current_address => self.current_address(person_obj) ,
-      :land_mark => self.get_attribute(person_obj,"Landmark Or Plot Number") ,
+      :land_mark => self.current_address(person_obj,"land_mark") ,
       :national_id => self.get_identifier(person_obj , "National id") ,
       :arv_number => self.get_identifier(person_obj , "ARV Number") ,
       :last_visit_date => self.last_visit_date(person_obj) ,
@@ -68,10 +68,21 @@ module PatientService
     ConceptName.find_by_concept_id(obs.value_coded).name
   end
   
-  def self.current_address(person_obj)
-    PersonAddress.find(:first,:order =>"date_created DESC",
+  def self.current_address(person_obj,address = "city_village")
+    person_address = PersonAddress.find(:first,:order =>"date_created DESC",
     :conditions => ["person_id = ? AND voided = 0",
-    person_obj.id]).city_village rescue nil
+    person_obj.id])
+    
+    case address
+      when "county_district"
+        return person_address.county_district 
+      when "city_village"
+        return person_address.city_village 
+      when "land_mark"
+        return person_address.address1 
+      when "home_district"
+        return person_address.address2
+    end
   end
   
   def self.phone_numbers(person_obj,phone_number_type)
@@ -163,7 +174,7 @@ module PatientService
           patients << self.demographics(Person.find(patient_id))
         end
       when 'Missed appointments'
-        self.died(start_date,end_date).map do |patient_id|
+        self.missed_appointment(start_date,end_date).map do |patient_id|
           patients << self.demographics(Person.find(patient_id))
         end
       when 'Transfer out'
@@ -203,5 +214,20 @@ module PatientService
                                                                                 
   def self.on_antiretroviral_therapy(start_date,end_date)                                        
     self.outcomes("On antiretroviral therapy",start_date,end_date)          
+  end
+                                                                                
+  def self.missed_appointment(start_date,end_date)                                        
+    hiv_reception_id = EncounterType.find_by_name("HIV RECEPTION").id
+    appointment_concept_id = ConceptName.find_by_name("APPOINTMENT DATE").concept_id
+
+    Observation.find_by_sql("SELECT o.person_id FROM obs o 
+    WHERE o.obs_datetime >= '#{start_date.strftime('%Y-%m-%d 00:00:00')}' 
+    AND o.obs_datetime <= '#{end_date.strftime('%Y-%m-%d 23:59:59')}' 
+    AND o.concept_id=#{appointment_concept_id} AND o.person_id 
+    NOT IN(SELECT e.patient_id FROM encounter e INNER JOIN obs i 
+    ON e.encounter_id=i.encounter_id WHERE encounter_type = #{hiv_reception_id} 
+    AND encounter_datetime >= o.value_datetime AND encounter_datetime <= o.value_datetime
+    ) GROUP BY o.person_id ORDER BY o.obs_datetime DESC").collect{|obs|obs.person_id}
+
   end
 end
