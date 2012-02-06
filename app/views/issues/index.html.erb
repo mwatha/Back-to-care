@@ -54,6 +54,12 @@
   padding-left: 30px;
   position: absolute;
 }
+
+#popUp td{
+  background-color: white;
+  font-size: 0.8em;
+}
+
 </style>                                                                        
 <%= stylesheet_link_tag "home" %>                                              
 <%= stylesheet_link_tag "issues" %>                                              
@@ -87,7 +93,11 @@
 
   function search() {
     var search_str = document.getElementById("name").value;
-    var sex = document.getElementById("gender").value;                      
+    if(document.getElementById("female").checked){
+      var sex = 'Female';
+    }else{
+      var sex = 'Male';
+    }                      
     var url = "/issues/quick_search/?search_str=" + search_str + "&gender=" + sex;
     if (!search_str == "" && !sex == ""){                                                       
       response = new Ajax.Request(url,{method:'get',onSuccess: function(transport){
@@ -109,6 +119,13 @@
 
     start_date = new Date(parseFloat(start_year),parseFloat(start_month) - 1,parseFloat(start_day));
     end_date = new Date(parseFloat(end_year),parseFloat(end_month) - 1,parseFloat(end_day));
+
+    if(end_date > new Date())
+      end_date = new Date();
+
+    if(start_date > end_date)
+      start_date = end_date;
+
 
     document.getElementById("start_date_disabled").value = formatDate(start_date,"yyyy-mm-dd");
     document.getElementById("end_date_disabled").value = formatDate(end_date,"yyyy-mm-dd");
@@ -144,6 +161,10 @@
         dataT();   
       }});                                                                        
     }                                                                
+  }
+
+  function unCheckBox(id) {
+    document.getElementById(id).checked = false;
   }
 </script>                                                                                
 </head>                                                                         
@@ -189,11 +210,27 @@
 
 <div id="shadow" class="opaqueLayer"> </div>
 <div id="question" class="questionLayer" style="font-size: 0.9em;">
-  <br />
+  <!--br />
     Select patient's gender:&nbsp;<%= select_tag "gender", options_for_select(["","Female", "Male"]) %>
     <p>Start typing patient's name:&nbsp;<%= text_field_tag :name ,
                                              nil , :onkeyup => "search();"%>
     </p>
+  <br />
+  <input type="button" onclick="hideLayer();" value="Close" /-->
+  <br />
+    <table id="popUp">
+    <tr>
+      <td>
+        Patient's name:&nbsp;<%= text_field_tag :name ,nil , :onkeyup => "search();"%>
+      </td>
+      <td>
+        &nbsp;F<%=check_box_tag(:female, value = "1", checked = true, options = {:onchange => "unCheckBox('male');"})%>
+      </td>
+      <td>
+        &nbsp;M<%=check_box_tag(:male, value = "1", checked = false, options = {:onchange => "unCheckBox('female');"})%>
+      </td>
+    </tr>
+    </table>
   <br />
   <input type="button" onclick="hideLayer();" value="Close" />
 </div>

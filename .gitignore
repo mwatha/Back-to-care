@@ -1,6 +1,5 @@
 config/database.yml
-log/development.log
-log/production.log
+log/*
 .DS_Store
 .DS_config
 swp
@@ -14,3 +13,4 @@ callibrate*
 doc/*
 doc/plugins
 nbproject/*
+rdoc/*
