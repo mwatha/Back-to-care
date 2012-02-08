@@ -1,0 +1,17 @@
+--- 
+sms_0000001:
+  id: 1 
+  name: Sending
+  description: Sms that has been sent from the back to care system
+  date_created: 2012-02-08 10:33:13 +02:00
+  retired_datetime: 
+  retired: false 
+  retired_reason:
+sms_0000002:
+  id: 2 
+  name: Receiving
+  description: Sms that has been received from the patients
+  date_created: 2012-02-08 10:33:13 +02:00
+  retired_datetime: 
+  retired: false 
+  retired_reason:

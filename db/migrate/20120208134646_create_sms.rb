@@ -1,4 +1,4 @@
-class Sms < ActiveRecord::Migration
+class CreateSms < ActiveRecord::Migration
   def self.up
     create_table :sms do |t|                                                    
       t.integer :sms_type_id                                                    

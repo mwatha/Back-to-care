@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120131092731) do
+ActiveRecord::Schema.define(:version => 20120208134646) do
 
   create_table "sms", :force => true do |t|
     t.integer  "sms_type_id"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20120131092731) do
   end
 
   create_table "sms_type", :force => true do |t|
-    t.integer  "name"
+    t.string   "name"
     t.text     "description"
     t.datetime "date_created"
     t.boolean  "retired"
