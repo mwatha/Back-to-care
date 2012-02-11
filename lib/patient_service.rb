@@ -38,6 +38,7 @@ module PatientService
       :arv_number => self.get_identifier(person_obj , "ARV Number") ,
       :last_visit_date => self.last_visit_date(person_obj) ,
       :last_regimen_given => self.last_regimen_given(person_obj) ,
+      :last_drugs_given => self.last_drugs_given(person_obj) ,
       :latest_state => self.latest_state(person_obj)
     }
 
@@ -66,6 +67,39 @@ module PatientService
     person_obj.id,concept_name.concept_id]) 
     return if obs.blank?
     ConceptName.find_by_concept_id(obs.value_coded).name
+  end
+
+  def self.last_drugs_given(person_obj)
+    concept_name = ConceptName.find_by_name("Amount dispensed")
+    obs_datetime = Observation.find(:first,:order =>"obs_datetime DESC , date_created DESC",
+    :conditions => ["person_id = ? AND voided = 0 AND concept_id = ?",
+    person_obj.id,concept_name.concept_id]).obs_datetime rescue nil 
+    return if obs_datetime.blank?
+
+    start_date = obs_datetime.strftime("%Y-%m-%d 00:00:00")
+    end_date = obs_datetime.strftime("%Y-%m-%d 23:59:59")
+
+    obs = Observation.find(:all,
+    :conditions => ["person_id = ? AND voided = 0 AND concept_id = ? AND
+    obs_datetime >=? AND obs_datetime <=?",person_obj.id,concept_name.concept_id,
+    start_date,end_date])
+
+    drug_orders = DrugOrder.find(:all,:conditions =>["order_id IN(?)",obs.collect{|ob|ob.order_id}])
+    drugs_given = {}
+
+    drug_orders.collect do |drug_order|
+      name = drug_order.drug.name
+      if drugs_given[name].blank?
+        drugs_given[name] = {:dose => drug_order.equivalent_daily_dose,
+         :quantity => drug_order.quantity,
+         :dispensed_date => drug_order.order.start_date}
+      else
+        drugs_given[name] = {:dose => drug_order.equivalent_daily_dose,
+          :quantity => (drugs_given[name][:quantity] + drug_order.quantity),
+          :dispensed_date => drug_order.order.start_date}
+      end
+    end
+    drugs_given
   end
   
   def self.current_address(person_obj,address = "city_village")

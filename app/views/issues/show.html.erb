@@ -14,6 +14,8 @@
     font-family: Verdana,Tahoma,Arial;
     font-size: 12px;
     font-weight: normal;
+    overflow: auto;
+    height: auto;
   }
 
 #results-info {
@@ -31,7 +33,7 @@
 
 #sub-content-view {
   background-color: #FFFFDD;
-  height: 65%;
+  height: auto;
   border: 1px dotted #696969;
 }
 
@@ -60,6 +62,7 @@ h3 {
 }
 
 .t_left th{
+  word-wrap: break-word;
   vertical-align: top;
   color: #404040;
 }
@@ -79,6 +82,62 @@ h3 {
   color: #EE8206;
 }
 
+hr {
+  border-style: dotted;
+  border-width: 1px;
+  margin-left: 12px;
+  margin-right: 12px; 
+}
+
+.clinic_information {
+  font-size: 12px; 
+  margin-left: 12px;
+  margin-right: 12px; 
+}
+
+#cancel_sms_link {
+    float: right;
+    margin-right: 9px;
+    right: 65px;
+}
+
+#send_sms_link {
+  margin-right:10px;
+  float: right;
+  position: absolute;
+  right: 65px;
+}
+
+#text_msg {
+  margin-left:5px;
+  width: 97%;
+}
+
+#sent_msg {
+  margin-left: 5px;
+}
+
+#sent_msg th, td {
+  font-size: 12px;
+  text-align: left;
+}
+
+#thread_text {
+  display: none;
+}
+
+.line_bottom {
+  border-style: dotted;
+  border-width: 0px 0px 1px 0px;
+}
+
+#numbers {
+  text-align: right;
+}
+
+#phone_numbers {
+  margin-right: 6px;
+}
 </style>                                                                        
 <%= stylesheet_link_tag "home" %>                                              
 <%= stylesheet_link_tag "issues" %>                                              
@@ -88,7 +147,58 @@ h3 {
 <%= unobtrusive_datepicker_includes %>
                                         
 <script>
-</script>                                                                                
+  function composeSMS() {
+    document.getElementById("thread").style.display="none";
+    document.getElementById("thread_text").style.display="inline";
+  }
+
+  function cancelSMS() {
+    document.getElementById("thread").style.display="inline";
+    document.getElementById("thread_text").style.display="none";
+    document.getElementById("text_msg").value = "";
+  }
+
+  function sendSMS() {
+    var selected_phone_number = document.getElementById("phone_numbers").value;
+    var sms = document.getElementById("text_msg").value;
+    if (selected_phone_number.length > 0 && sms.length > 0){
+      var url = "/sms/inbox?number=" + selected_phone_number;
+      url+="&person_id=<%=@demographics[:person_id]%>";
+      url+="&sms=" + sms;   
+      response = new Ajax.Request(url,{method:'get',onSuccess: function(transport){
+        text = transport.responseText;      
+        if (text) {
+          cancelSMS();
+          updateSMSthread();
+        }                 
+      }});                                                                        
+    } 
+  }
+
+  function updateSMSthread() {
+    var url = "/sms/update_sms_thred/<%=@demographics[:person_id]%>";
+    response = new Ajax.Request(url,{method:'get',onSuccess: function(transport){
+      text = transport.responseText;                                          
+      if (text.length > 0) {
+        document.getElementById("thread").innerHTML = text;
+      }
+    }});                                                                        
+  }
+
+  //setInterval("updateSMSthread();",500);
+</script>       
+<%
+  phone_numbers = [""]
+  if @demographics[:office_phone_number]
+    phone_numbers << @demographics[:office_phone_number] 
+  end
+  if @demographics[:cell_phone_number]
+    phone_numbers << @demographics[:cell_phone_number] 
+  end
+  if @demographics[:home_phone_number]
+    phone_numbers << @demographics[:home_phone_number] 
+  end
+%>                                                                         
 </head>                                                                         
                                                                                 
 <body id = "main_body">
@@ -103,6 +213,25 @@ h3 {
 <div id = "main-content">
   <div id = "side-content">
       <div class="h3"><h3>SMS thread</h3></div>
+      <div class="sms_string" id="thread_text">
+         <div id="numbers">Select number:&nbsp;<%= select_tag :phone_numbers,                              
+         options_for_select(phone_numbers)%></div>
+        <%=text_area_tag(:text_msg, nil, {:limit => 160})%><br />
+        <%= link_to "Send","javascript:sendSMS();",:id => "send_sms_link" %>
+        <%= link_to "Cancel","javascript:cancelSMS();",:id => "cancel_sms_link" %>
+      </div>
+      <div class="sms_string" id="thread">
+        <table id="sent_msg">
+          <% @sms.map do |sms| %>
+          <tr class="bgcolor_<%=%>">
+            <th><%=sms.number%> (<%=sms.date_created.to_date%>)</th>
+          </tr>
+          <tr class="bgcolor_<%=%>">
+            <td class="line_bottom"><%=sms.message%></td>
+          </tr>
+          <%end%>
+        </table>
+      </div>
   </div>
 
   <div id = "content-view">
@@ -112,35 +241,57 @@ h3 {
       <tr>
         <th>Name:&nbsp;</th><td><%=@demographics[:first_name] + "&nbsp;" + @demographics[:last_name]%></td>
         <th>Sex:&nbsp;</th><td><%=@demographics[:gender] == "F" ? "Female" : "Male"%></td>
-        <th>DOB:&nbsp;</th><td><%=@demographics[:dob]%></td>
+        <th>Occupation:&nbsp;</th><td><%=@demographics[:occupation]%></td>
       </tr>
     <!--/table>
     <table class = "t_left"-->
-        <th>Occupation:&nbsp;</th><td><%=@demographics[:occupation]%></td>
-        <th>Land mark:&nbsp;</th><td><%=@demographics[:land_mark]%></td>
+        <th>DOB:&nbsp;</th><td><%=@demographics[:dob]%></td>
+        <th>ARV number:&nbsp;</td><td><%=@demographics[:arv_number]%></td>
       </tr>
       <tr>
         <th>Address:&nbsp;</th><td><%=@demographics[:current_address]%></td>
         <th>Home district:&nbsp;</th><td><%=@demographics[:home_district]%></td>
-        <th>ARV number:&nbsp;</td><td><%=@demographics[:arv_number]%></td>
+        <th>Land mark:&nbsp;</th><td><%=@demographics[:land_mark]%></td>
       </tr>
     </table>
-    <table class = "t_left">
-      <tr>
-        <th>Last visit date:&nbsp;</td><td><%=@demographics[:last_visit_date]%></td>
-      </tr>
-      <tr>
-        <th>Outcome:&nbsp;</td><td><%=@demographics[:latest_state]%></td>
-      </tr>
-      <tr>
-        <th>Latest regimen given:&nbsp;</td><td><%=@demographics[:last_regimen_given]%></td>
-      </tr>
-    </table>
+    <hr />
+    <p class="clinic_information"><strong>Latest clinical information</strong></p>
+    <p class="clinic_information">Last visit date:&nbsp;<%=@demographics[:last_visit_date]%></p>
+    <p class="clinic_information">Outcome:&nbsp;<%=@demographics[:latest_state]%></p>
+    <!--p class="clinic_information">Latest regimen given:&nbsp;<%#=@demographics[:last_regimen_given]%></p-->
+    <p class="clinic_information" style="color: #EE8206;font-family: Tahoma,Verdana,Arial;">Latest drugs given:</p>
+    <% @demographics[:last_drugs_given].map do |name , values|
+       quantity = values[:quantity]
+       dose = values[:dose]
+       dispensed_date = values[:dispensed_date].to_date rescue nil
+       days_gone = (Date.today - dispensed_date).to_i rescue nil
+       expected_remaining = (quantity.to_f - (dose*days_gone)) rescue 'Error'
+       unless expected_remaining == 'Error' 
+        expected_remaining = 0 if expected_remaining < 0 
+       end
+    %>
+      <p class="clinic_information"><%=name%>:
+      &nbsp;Dispensed quantity: (<%=quantity ||= 'N/A'%>)
+      &nbsp;Daily dose <%=dose%></p>
+      <p class="clinic_information">Dispensed date <%=dispensed_date%>
+      &nbsp;Expected remaining <%=expected_remaining%>
+      <% if expected_remaining == 0 
+         run_out_date = dispensed_date + ((quantity/dose).to_f).days
+         days_gone_since_run_out = (Date.today - run_out_date).to_i
+      %>
+        <p class="clinic_information"  style="color: red;">Patient has missed:
+          &nbsp;<%=days_gone_since_run_out%>&nbsp;days
+        </p>
+      <%end rescue nil%>
+      <hr />
+      </p>
+    <%end%>
+    <!--p class="clinic_information">Number of pills given:&nbsp;</td><td><%=%></p>
+    <p class="clinic_information">Expected pills remaining:&nbsp;</td><td><%=%></p-->
   </div>
   <div id = "controls">
-    <a href="">Send sms</a>|
-    <a href="">Refresh sms thread</a>|
-    <a href="/issues/index">Reports</a>
+    <a href="javascript:composeSMS();">Compose sms</a>|
+    <a href="/issues/index">Run queries</a>
   </div>
 
 </div>

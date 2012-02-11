@@ -5,7 +5,7 @@ class IssuesController < ApplicationController
 
   def quick_search
     name = params[:search_str].strip 
-    report = "Its working"
+    report = ""
     gender = params[:gender].strip.first rescue ""
     patients = PatientService.find_patients_by_name_and_gender(name , gender)
     @html = ""
@@ -32,6 +32,7 @@ EOF
 
   def show
     @demographics = PatientService.demographics(Person.find(params[:id]))                                                                    
+    @sms = Sms.find(:all,:conditions =>["person_id=?",params[:id]])
     @report = params[:title]
   end
 
