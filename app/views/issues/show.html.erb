@@ -161,6 +161,12 @@ hr {
   function sendSMS() {
     var selected_phone_number = document.getElementById("phone_numbers").value;
     var sms = document.getElementById("text_msg").value;
+    if (selected_phone_number.length == 0) {
+      alert("Select a phone number to send to")
+      return 
+    }
+
+
     if (selected_phone_number.length > 0 && sms.length > 0){
       var url = "/sms/inbox?number=" + selected_phone_number;
       url+="&person_id=<%=@demographics[:person_id]%>";
@@ -190,13 +196,13 @@ hr {
 <%
   phone_numbers = [""]
   if @demographics[:office_phone_number]
-    phone_numbers << @demographics[:office_phone_number] 
+    phone_numbers << @demographics[:office_phone_number] unless @demographics[:office_phone_number].match(/Unknown/i)
   end
   if @demographics[:cell_phone_number]
-    phone_numbers << @demographics[:cell_phone_number] 
+    phone_numbers << @demographics[:cell_phone_number] unless @demographics[:cell_phone_number].match(/Unknown/i)
   end
   if @demographics[:home_phone_number]
-    phone_numbers << @demographics[:home_phone_number] 
+    phone_numbers << @demographics[:home_phone_number] unless @demographics[:home_phone_number].match(/Unknown/i)
   end
 %>                                                                         
 </head>                                                                         
@@ -241,12 +247,12 @@ hr {
       <tr>
         <th>Name:&nbsp;</th><td><%=@demographics[:first_name] + "&nbsp;" + @demographics[:last_name]%></td>
         <th>Sex:&nbsp;</th><td><%=@demographics[:gender] == "F" ? "Female" : "Male"%></td>
-        <th>Occupation:&nbsp;</th><td><%=@demographics[:occupation]%></td>
       </tr>
     <!--/table>
     <table class = "t_left"-->
         <th>DOB:&nbsp;</th><td><%=@demographics[:dob]%></td>
         <th>ARV number:&nbsp;</td><td><%=@demographics[:arv_number]%></td>
+        <th>Occupation:&nbsp;</th><td><%=@demographics[:occupation]%></td>
       </tr>
       <tr>
         <th>Address:&nbsp;</th><td><%=@demographics[:current_address]%></td>
@@ -256,8 +262,11 @@ hr {
     </table>
     <hr />
     <p class="clinic_information"><strong>Latest clinical information</strong></p>
-    <p class="clinic_information">Last visit date:&nbsp;<%=@demographics[:last_visit_date]%></p>
-    <p class="clinic_information">Outcome:&nbsp;<%=@demographics[:latest_state]%></p>
+    <p class="clinic_information">Last visit date:&nbsp;
+    <%=@demographics[:last_visit_date].strftime('%A %d %B %Y') rescue nil%></p>
+    <p class="clinic_information">Appointment date given:&nbsp;
+    <%=@demographics[:latest_appointment_date_given].strftime('%A %d %B %Y') rescue nil%></p>
+    <p class="clinic_information">Latest Outcome:&nbsp;<%=@demographics[:latest_state]%></p>
     <!--p class="clinic_information">Latest regimen given:&nbsp;<%#=@demographics[:last_regimen_given]%></p-->
     <p class="clinic_information" style="color: #EE8206;font-family: Tahoma,Verdana,Arial;">Latest drugs given:</p>
     <% @demographics[:last_drugs_given].map do |name , values|

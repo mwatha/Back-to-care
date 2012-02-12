@@ -1,0 +1,155 @@
+<html>                                                                          
+<head>                                                                          
+<title>Back to care:<%=@title%></title>                                      
+<style>   
+  #results-info {
+    color: #555555;
+    font-size: 0.8em;
+    padding-left: 30px;
+    position: absolute;
+    text-align: left;
+  }
+ 
+  ul {
+    color: #505050;
+    line-height: 1.5em;
+  }        
+
+  #content-right a {
+    color: green;
+    text-decoration: none;
+    font-family: Verdana,Tahoma,Arial;
+    font-size: 10px;
+    font-weight: normal;
+  } 
+                                                            
+  #content-right li {
+    line-height: 0.5em;
+  }
+
+  #table-content a {
+    color: black;
+    font-family: helvetica,arial,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    list-style-type: none;
+    text-decoration: underline;
+  }
+
+  .patient_info {
+    background-color: #C4FFC4 !important;
+  }
+
+  #table-content td {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: helvetica,arial,sans-serif;
+    font-size: 14px;
+  }
+
+  #table-content table {
+    width: 100%;
+    padding-top: 25px;
+  }
+
+  th {                                                                            
+    color: #555555;                                                                 
+    font-weight: normal;                                                            
+    cursor: pointer;                                                                
+    text-align: left;                                                               
+    font-style: normal;                                                             
+    font-size: 0.9em;                                                               
+    font-weight: bold;
+  }                                                                               
+                                                                                
+ #table_head_tr {                                                                   
+   background-color: white;                                                       
+   border-style: solid !important;                                                           
+   border-width-top: 1px;
+   border-width-bottom: 1px;
+   border-collapse: collapse;
+   border-spacing: 0;
+   font-family: helvetica,arial,sans-serif;
+  }
+
+  #th1 {                                                                          
+  width:90px !important;                                                        
+  }                                                                               
+                                                                                  
+  #th2 {                                                                          
+    width:200px !important;                                                       
+  }                                                                               
+                                                                                  
+  #th3 {                                                                          
+    width:200px !important;                                                       
+  }                                                                               
+                                                                                  
+  #th4 {                                                                          
+    width:85px !important;                                                        
+  }                                                                               
+                                                                                  
+  #th5 {                                                                          
+    width:100px !important;                                                       
+  }                                                                               
+                                                                                  
+  #th6 {                                                                          
+    width:100px !important;                                                       
+  }                                                                               
+                                                                                  
+  #th7 {                                                                          
+    width:150px !important;                                                       
+  }                      
+
+  #table-content {
+    width; 100%;
+    background-color: transparent;
+    height: 85%;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+  }
+  
+  #patient_data_info { visibility:hidden; }
+</style>                                                                        
+<%= stylesheet_link_tag "home" %>                                              
+<%=javascript_include_tag "prototype"%>                                         
+<%=javascript_include_tag "jquery_data_table" %>                                
+<%=javascript_include_tag "jquery.dataTables.min" %>                            
+                                                                                
+<%= stylesheet_link_tag "demo_table" %>                                         
+<%= stylesheet_link_tag "demo_table_jui" %>                                     
+<%= stylesheet_link_tag "demo_page" %>
+
+<script>       
+  function dataT(){                                                               
+   $('#patient_data').dataTable();                                                  
+  } 
+
+ setInterval("upDateResultsInfo();",300);                                      
+                                                                                
+  function upDateResultsInfo() {                                                
+    document.getElementById("results-info").innerHTML = document.getElementById("patient_data_info").innerHTML;
+  } 
+</script>                                                               
+</head>                                                                         
+                                                                                
+<body>
+
+
+<%= render(:partial => "/home/main_header") %><br />
+
+<div id = "headline-container">
+Reports::<%=@type%>
+</div>
+
+<div id = "table-content">
+<%=build_table(@patients,@title)%>
+</div>
+<div id="results-info">
+</div>
+
+</body>
+</html>
+
+<script>                                                                        
+  dataT();
+</script>

@@ -3,19 +3,6 @@ module PatientService
 	#require 'bean'
 
   def self.demographics(person_obj)
-=begin
-    if person_obj.birthdate_estimated==1
-      birth_day = "Unknown"
-      if person_obj.birthdate.month == 7 and person_obj.birthdate.day == 1
-        birth_month = "Unknown"
-      else
-        birth_month = person_obj.birthdate.month
-      end
-    else
-      birth_month = person_obj.birthdate.month 
-      birth_day = person_obj.birthdate.day
-    end
-=end
     person_names = self.names(person_obj)
 
     demographics = {
@@ -36,6 +23,7 @@ module PatientService
       :land_mark => self.current_address(person_obj,"land_mark") ,
       :national_id => self.get_identifier(person_obj , "National id") ,
       :arv_number => self.get_identifier(person_obj , "ARV Number") ,
+      :latest_appointment_date_given => self.get_last_appointment_date_given(person_obj) ,
       :last_visit_date => self.last_visit_date(person_obj) ,
       :last_regimen_given => self.last_regimen_given(person_obj) ,
       :last_drugs_given => self.last_drugs_given(person_obj) ,
@@ -45,6 +33,13 @@ module PatientService
     return demographics
   end
   
+  def self.get_last_appointment_date_given(person)
+    concept_id = ConceptName.find_by_name("Appointment date").concept_id
+    Observation.find(:first,:order =>"obs_datetime DESC,date_created DESC",
+      :conditions =>["voided=0 AND person_id=? AND concept_id = ?",person.id,
+      concept_id]).value_datetime.to_date rescue nil
+  end
+   
   def self.latest_state(person_obj)
      program_id = Program.find_by_name('HIV PROGRAM').id
      last_visit_date = self.last_visit_date(person_obj) || Date.today
@@ -251,17 +246,20 @@ module PatientService
   end
                                                                                 
   def self.missed_appointment(start_date,end_date)                                        
-    hiv_reception_id = EncounterType.find_by_name("HIV RECEPTION").id
-    appointment_concept_id = ConceptName.find_by_name("APPOINTMENT DATE").concept_id
+    dispensing = EncounterType.find_by_name("DISPENSING").id
+    amount_dispensed_concept_id = ConceptName.find_by_name("Amount dispensed").concept_id
 
-    Observation.find_by_sql("SELECT o.person_id FROM obs o 
-    WHERE o.obs_datetime >= '#{start_date.strftime('%Y-%m-%d 00:00:00')}' 
-    AND o.obs_datetime <= '#{end_date.strftime('%Y-%m-%d 23:59:59')}' 
-    AND o.concept_id=#{appointment_concept_id} AND o.person_id 
-    NOT IN(SELECT e.patient_id FROM encounter e INNER JOIN obs i 
-    ON e.encounter_id=i.encounter_id WHERE encounter_type = #{hiv_reception_id} 
-    AND encounter_datetime >= o.value_datetime AND encounter_datetime <= o.value_datetime
-    ) GROUP BY o.person_id ORDER BY o.obs_datetime DESC").collect{|obs|obs.person_id}
-
-  end
+    Observation.find_by_sql("SELECT e.patient_id,
+prescribed_days_missed(DATE(orders.start_date),DATE('#{end_date}'),equivalent_daily_dose,quantity) AS days_over_due
+FROM obs 
+INNER JOIN encounter e ON e.encounter_id = obs.encounter_id 
+AND e.encounter_datetime=(SELECT MAX(x.encounter_datetime) FROM encounter x WHERE x.patient_id=e.patient_id)
+INNER JOIN drug d ON d.drug_id = obs.value_drug and d.concept_id IN(SELECT s.concept_id FROM concept_set s WHERE (concept_set = 1085))
+INNER JOIN orders ON orders.order_id = obs.order_id
+INNER JOIN drug_order od ON od.order_id = orders.order_id
+WHERE e.encounter_type = #{dispensing} and obs.concept_id =  #{amount_dispensed_concept_id}
+GROUP BY e.patient_id
+HAVING days_over_due >= 21
+ORDER BY e.encounter_datetime DESC,e.date_created DESC").collect{|e|e.patient_id}
+    end
 end

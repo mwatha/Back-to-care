@@ -46,25 +46,31 @@ click on the 'Help' menu option at the top.
     <div id = "latest-outcomes">Latest outcomes</div>
       <ul>
         <li>
-          <a href="/issues/index?id=defaulters">Defaulters</a>
+          <a href="/reports/container?type=missed_appointments&start_date=<%=(Date.today - 3.months)%>">Missed appointments</a>
+          (<%=(Encounter.first.encounter_datetime || Date.today).strftime("%d %b %Y")%>
+          &nbsp;to&nbsp;<%=Date.today.strftime("%d %b %Y")%>)
+          <p>Patients who have run-out of arv drugs and more than 21 days has passed</p>
+        </li><br />
+        <li>
+          <a href="/reports/container?type=defaulters&start_date=<%=(Date.today - 3.months)%>">SMS sent status</a>
           (<%=(Date.today - 3.months).strftime("%d %b %Y")%>
           &nbsp;to&nbsp;<%=Date.today.strftime("%d %b %Y")%>)
-          <p>Patients who have not come to the clinic for 3 months</p>
+          <p>The current status of sent sms - wether the were delivered or not</p>
         </li><br />
         <li>
-          <a href="">Missed appointments</a>
+          <a href="/reports/container?type=trace_outcomes&start_date=<%=(Date.today - 3.months)%>">Current trace outcomes</a>
           (<%=(Date.today - 2.months).strftime("%d %b %Y")%>
           &nbsp;to&nbsp;<%=Date.today.strftime("%d %b %Y")%>)
-          <p>Patients who have missed their appointments days and have not come since</p>
+          <p>The current status of patients who have been traced through sms or patient visits</p>
         </li><br />
         <li>
-          <a href="">Transfer out</a>
+          <a href="/reports/container?type=transfer_outs&start_date=<%=(Date.today - 3.months)%>">Transfer out</a>
           (<%=(Date.today - 1.month).strftime("%d %b %Y")%>
           &nbsp;to&nbsp;<%=Date.today.strftime("%d %b %Y")%>)
           <p>Patients who have transfered to other clinics for treatment</p>
         </li><br />
         <li>
-          <a href="">Died</a>
+          <a href="/reports/container?type=died&start_date=<%=(Date.today - 3.months)%>">Died</a>
           (<%=(Date.today - 2.months).strftime("%d %b %Y")%>
           &nbsp;to&nbsp;<%=Date.today.strftime("%d %b %Y")%>)
           <p>Patients who have been reported as "Dead"</p>
