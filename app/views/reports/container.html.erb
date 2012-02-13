@@ -144,7 +144,7 @@
        count+= 200;
      }
      html.push("<option value='" + count + "'>" + count +"</option>");
-     document.getElementsByName("patient_data_length")[0].innerHTML = html;
+     document.getElementsByName("patient_data_length")[0].innerHTML = html.join("");
    }                                                
   } 
 

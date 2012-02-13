@@ -196,13 +196,13 @@ hr {
 <%
   phone_numbers = [""]
   if @demographics[:office_phone_number]
-    phone_numbers << @demographics[:office_phone_number] unless @demographics[:office_phone_number].match(/Unknown/i)
+    phone_numbers << @demographics[:office_phone_number] unless @demographics[:office_phone_number].match(/Unknown|N/i)
   end
   if @demographics[:cell_phone_number]
-    phone_numbers << @demographics[:cell_phone_number] unless @demographics[:cell_phone_number].match(/Unknown/i)
+    phone_numbers << @demographics[:cell_phone_number] unless @demographics[:cell_phone_number].match(/Unknown|N/i)
   end
   if @demographics[:home_phone_number]
-    phone_numbers << @demographics[:home_phone_number] unless @demographics[:home_phone_number].match(/Unknown/i)
+    phone_numbers << @demographics[:home_phone_number] unless @demographics[:home_phone_number].match(/Unknown|N/i)
   end
 %>                                                                         
 </head>                                                                         
