@@ -243,7 +243,7 @@ module PatientService
       AND i.identifier_type = (SELECT patient_identifier_type_id 
       FROM #{db_name}.patient_identifier_type pi WHERE pi.name = 'National id')
       INNER JOIN #{db_name}.users u ON u.user_id=sms.provider_id",
-      :conditions =>["sms_type_id=?",sms_type_id],
+      :conditions =>["sms_type_id=? AND delivered = 0",sms_type_id],
       :select =>"sms.person_id,n.given_name,n.family_name, p.gender, 
       p.birthdate , sms.message , sms.delivered , sms.number, sms.date_created sent_date ,
       u.username sender,i.identifier national_id",
@@ -254,21 +254,6 @@ module PatientService
        r.birthdate , r.sent_date , r.delivered ,r.national_id,
        r.sender , r.message , r.number,r.delivered]
     end
-=begin
-FROM obs 
-INNER JOIN encounter e ON e.encounter_id = obs.encounter_id 
-AND e.encounter_datetime=(SELECT MAX(x.encounter_datetime) FROM encounter x WHERE x.patient_id=e.patient_id)
-INNER JOIN drug d ON d.drug_id = obs.value_drug and d.concept_id IN(SELECT s.concept_id FROM concept_set s WHERE (concept_set = 1085))
-INNER JOIN orders ON orders.order_id = obs.order_id
-INNER JOIN drug_order od ON od.order_id = orders.order_id
-INNER JOIN person p ON p.person_id=e.patient_id
-INNER JOIN person_name n ON p.person_id=n.person_id
-INNER JOIN patient_identifier i ON i.patient_id = e.patient_id AND i.identifier_type = (SELECT patient_identifier_type_id FROM patient_identifier_type pi WHERE pi.name = 'National id')
-WHERE e.encounter_type = #{dispensing} and obs.concept_id =  #{amount_dispensed_concept_id}
-GROUP BY e.patient_id
-HAVING days_over_due >= 21
-ORDER BY e.encounter_datetime DESC,e.date_created DESC")   
-=end
   end                                                                           
                                                                                 
   def self.art_stopped_patients(start_date,end_date)                             

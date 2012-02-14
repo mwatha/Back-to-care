@@ -49,7 +49,7 @@ EOF
 <th id="th6">Message</th>                        
 <th id="th7">Sent to</th>                        
 <th id="th7">Sender</th>                        
-<th id="th9">Sent date</th>                        
+<th id="th9">Sent-date</th>                        
 <th id="th10">Delivered</th>                        
 <th id="th11">&nbsp;</th>                                 
 </tr>                                                                           
