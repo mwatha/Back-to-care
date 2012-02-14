@@ -1,7 +1,21 @@
 <html>                                                                          
 <head>                                                                          
 <title>Back to care</title>                                      
-<style>    
+<style>   
+  .delivered_true {
+    background-color: green;
+    height: 1.8%;
+    width: 12%; 
+    position: absolute;
+  }
+   
+  .delivered_false {
+    background-color: red;
+    height: 1.8%;
+    width: 12%; 
+    position: absolute;
+  }
+   
   span {
     color: #EE8206;
     font-family: Verdana,Tahoma,Arial;
@@ -233,7 +247,9 @@ hr {
             <th><%=sms.number%> (<%=sms.date_created.to_date%>)</th>
           </tr>
           <tr class="bgcolor_<%=%>">
-            <td class="line_bottom"><%=sms.message%></td>
+            <td class='line_bottom'><%=sms.message%>
+              &nbsp;<span class="delivered_<%=sms.delivered%>">&nbsp;</span>
+            </td>                                   
           </tr>
           <%end%>
         </table>

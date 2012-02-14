@@ -3,7 +3,7 @@ class SmsController < ApplicationController
     sms = Sms.new()
     sms.sms_type_id = SmsType.find_by_name("Outbox")
     sms.person_id = params[:person_id]
-    sms.provider_id = 1
+    sms.provider_id = User.current_user
     sms.message = params[:sms]
     sms.number = params[:number]
     success = sms.save
@@ -19,7 +19,8 @@ class SmsController < ApplicationController
   <th>#{sms.number} (#{sms.date_created.to_date})</th>                          
 </tr>                                                                           
 <tr>                                                                            
-  <td class='line_bottom'>#{sms.message}</td>                                   
+  <td class='line_bottom'>#{sms.message}&nbsp;
+  <span class="delivered_#{sms.delivered}">&nbsp;</span></td>                                   
 </tr>
 EOF
     end

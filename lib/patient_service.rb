@@ -229,8 +229,8 @@ module PatientService
   protected
 
   def self.sms_status(start_date,end_date)                                 
-    Sms.find(:all,:joins =>"INNER JOIN person_names n ON sms.person_id = n.person_id
-    INNER JOIN "                        
+    #Sms.find(:all,:joins =>"INNER JOIN person_names n ON sms.person_id = n.person_id
+    #INNER JOIN "                        
   end                                                                           
                                                                                 
   def self.art_stopped_patients(start_date,end_date)                             
@@ -252,10 +252,11 @@ module PatientService
   def self.missed_appointment(start_date,end_date)                                        
     dispensing = EncounterType.find_by_name("DISPENSING").id
     amount_dispensed_concept_id = ConceptName.find_by_name("Amount dispensed").concept_id
+    db = YAML.load(File.open(File.join(RAILS_ROOT, "config/database.yml"), "r"))[RAILS_ENV]
 
     records = Observation.find_by_sql("SELECT e.patient_id,n.given_name,n.family_name, 
-p.gender, p.birthdate ,  DATE(e.encounter_datetime) AS visit_date,
-prescribed_days_missed(DATE(orders.start_date),DATE('#{end_date}'),equivalent_daily_dose,quantity) AS days_over_due,
+p.gender, p.birthdate , DATE(e.encounter_datetime) AS visit_date,
+#{db['database']}.prescribed_days_missed(DATE(orders.start_date),DATE('#{end_date}'),equivalent_daily_dose,quantity) AS days_over_due,
 identifier AS national_id
 FROM obs 
 INNER JOIN encounter e ON e.encounter_id = obs.encounter_id 

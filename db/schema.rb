@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20120211154331) do
     t.text     "message"
     t.integer  "number"
     t.boolean  "delivered",    :default => false
-    t.datetime "date_created"
+    t.datetime "date_created", :default => '2012-02-14 12:51:17'
     t.boolean  "voided",       :default => false
     t.integer  "voided_by"
     t.datetime "date_voided"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20120211154331) do
   create_table "sms_type", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "date_created"
+    t.datetime "date_created",     :default => '2012-02-14 12:51:17'
     t.boolean  "retired",          :default => false
     t.datetime "retired_datetime"
     t.string   "retired_reason"
