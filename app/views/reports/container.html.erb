@@ -78,6 +78,7 @@
    font-family: helvetica,arial,sans-serif;
   }
 
+<% unless @type.match(/sms/i)%>
   #th1 {                                                                          
   width:90px !important;                                                        
   }                                                                               
@@ -105,7 +106,51 @@
   #th7 {                                                                          
     width:150px !important;                                                       
   }                      
-
+<%else%>
+  #th1 {                                                                          
+  width:70px !important;                                                        
+  }                                                                               
+                                                                                  
+  #th2 {                                                                          
+    width:100px !important;                                                       
+  }                                                                               
+                                                                                  
+  #th3 {                                                                          
+    width:100px !important;                                                       
+  }                                                                               
+                                                                                  
+  #th4 {                                                                          
+    width:25px !important;                                                        
+  }                                                                               
+                                                                                  
+  #th5 {                                                                          
+    width:80px !important;                                                       
+  }                                                                               
+                                                                                  
+  #th6 {                                                                          
+    width:300px !important;                                                       
+  }                                                                               
+                                                                                  
+  #th7 {                                                                          
+    width:75px !important;                                                       
+  }                      
+                                                                                  
+  #th8 {                                                                          
+    width:0px !important;                                                       
+  }                      
+                                                                                  
+  #th9 {                                                                          
+    width:30px !important;                                                       
+  }                      
+                                                                                  
+  #th10 {                                                                          
+    width:0px !important;                                                       
+  }
+                        
+  #th11 {                                                                          
+    width:85px !important;                                                       
+  }                      
+<%end%>
   #table-content {
     width; 100%;
     background-color: transparent;
@@ -166,7 +211,11 @@ Reports::<%=@type%>
 </div>
 
 <div id = "table-content">
-<%=build_table(@patients,@title)%>
+<% if @type.match(/sms/i)%>
+  <%=sms_status_table(@patients,@title)%>
+<%else%>
+  <%=build_table(@patients,@title)%>
+<%end%>
 </div>
 <div id="results-info">
 </div>
