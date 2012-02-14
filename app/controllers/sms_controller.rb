@@ -1,12 +1,11 @@
 class SmsController < ApplicationController
   def inbox
     sms = Sms.new()
-    sms.sms_type_id = 1
+    sms.sms_type_id = SmsType.find_by_name("Outbox")
     sms.person_id = params[:person_id]
     sms.provider_id = 1
     sms.message = params[:sms]
     sms.number = params[:number]
-    sms.date_created = Time.now()
     success = sms.save
     render :text => "sent #{success}" and return
   end

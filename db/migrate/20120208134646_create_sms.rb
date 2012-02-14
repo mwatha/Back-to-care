@@ -7,7 +7,7 @@ class CreateSms < ActiveRecord::Migration
       t.text :message                                                           
       t.integer :number                                                         
       t.boolean :delivered,:default => false                                                      
-      t.datetime :date_created 
+      t.datetime :date_created ,:default => Time.now() 
       t.boolean :voided , :default => false                                    
       t.integer :voided_by                                                      
       t.datetime :date_voided                                                   

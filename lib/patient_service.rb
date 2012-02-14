@@ -198,8 +198,8 @@ module PatientService
         self.died(start_date,end_date).map do |patient_id|
           patients << self.demographics(Person.find(patient_id))
         end
-      when 'Defaulters'
-        self.art_defaulted_patients(start_date,end_date).map do |patient_id|
+      when 'SMS status'
+        self.sms_status(start_date,end_date).map do |patient_id|
           patients << self.demographics(Person.find(patient_id))
         end
       when 'Missed appointments'
@@ -228,8 +228,9 @@ module PatientService
 
   protected
 
-  def self.art_defaulted_patients(start_date,end_date)                                 
-    self.outcomes('PATIENT DEFAULTED',start_date , end_date)                        
+  def self.sms_status(start_date,end_date)                                 
+    Sms.find(:all,:joins =>"INNER JOIN person_names n ON sms.person_id = n.person_id
+    INNER JOIN "                        
   end                                                                           
                                                                                 
   def self.art_stopped_patients(start_date,end_date)                             

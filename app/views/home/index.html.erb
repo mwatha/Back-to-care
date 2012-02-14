@@ -52,7 +52,7 @@ click on the 'Help' menu option at the top.
           <p>Patients who have run-out of arv drugs and more than 21 days has passed</p>
         </li><br />
         <li>
-          <a href="/reports/container?type=defaulters&start_date=<%=(Date.today - 3.months)%>">SMS sent status</a>
+          <a href="/reports/container?type=sms_status&start_date=<%=(Date.today - 3.months)%>">SMS sent status</a>
           (<%=(Date.today - 3.months).strftime("%d %b %Y")%>
           &nbsp;to&nbsp;<%=Date.today.strftime("%d %b %Y")%>)
           <p>The current status of sent sms - wether the were delivered or not</p>

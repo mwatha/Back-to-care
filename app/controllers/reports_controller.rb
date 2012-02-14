@@ -9,6 +9,8 @@ class ReportsController < ApplicationController
     case params[:type]
       when "missed_appointments"
         @patients = PatientService.report("Missed appointments" , @start_date , @end_date)
+      when "sms_status"
+        @patients = PatientService.report("SMS status" , @start_date , @end_date)
     end
   end
 

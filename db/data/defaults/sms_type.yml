@@ -1,7 +1,7 @@
 --- 
 sms_0000001:
   id: 1 
-  name: Sending
+  name: Outbox
   description: Sms that has been sent from the back to care system
   date_created: 2012-02-08 10:33:13 +02:00
   retired_datetime: 
@@ -9,7 +9,7 @@ sms_0000001:
   retired_reason:
 sms_0000002:
   id: 2 
-  name: Receiving
+  name: Inbox
   description: Sms that has been received from the patients
   date_created: 2012-02-08 10:33:13 +02:00
   retired_datetime: 
