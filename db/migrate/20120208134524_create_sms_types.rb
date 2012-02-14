@@ -5,7 +5,7 @@ class CreateSmsTypes < ActiveRecord::Migration
       t.text :description                                                       
       t.interger :creator                                                       
       t.datetime :date_created                                                  
-      t.boolean :retired                                                        
+      t.boolean :retired , :default => false                                                  
       t.interger :retired_by                                                    
       t.datetime :retired_datetime                                              
       t.string :retired_reason                                                    

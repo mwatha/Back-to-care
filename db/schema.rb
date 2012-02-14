@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208134646) do
+ActiveRecord::Schema.define(:version => 20120211154331) do
+
+  create_table "report_types", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reports", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sms", :force => true do |t|
     t.integer  "sms_type_id"
@@ -17,8 +27,9 @@ ActiveRecord::Schema.define(:version => 20120208134646) do
     t.integer  "provider_id"
     t.text     "message"
     t.integer  "number"
+    t.boolean  "delivered",    :default => false
     t.datetime "date_created"
-    t.boolean  "voided"
+    t.boolean  "voided",       :default => false
     t.integer  "voided_by"
     t.datetime "date_voided"
   end
@@ -27,9 +38,9 @@ ActiveRecord::Schema.define(:version => 20120208134646) do
     t.string   "name"
     t.text     "description"
     t.datetime "date_created"
-    t.boolean  "retired"
+    t.boolean  "retired",          :default => false
     t.datetime "retired_datetime"
-    t.text     "retired_reason"
+    t.string   "retired_reason"
   end
 
 end

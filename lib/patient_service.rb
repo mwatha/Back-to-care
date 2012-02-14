@@ -203,8 +203,11 @@ module PatientService
           patients << self.demographics(Person.find(patient_id))
         end
       when 'Missed appointments'
-        self.missed_appointment(start_date,end_date).map do |patient_id|
-          patients << self.demographics(Person.find(patient_id))
+        self.missed_appointment(start_date,end_date).map do |record|
+          patients << {:person_id => record[0] ,:gender => record[3] ,                                            
+                       :dob => record[4] , :first_name => record[1] ,                                
+                       :last_name => record[2],:national_id => record[7],
+                       :last_visit_date => record[5] }
         end
       when 'Transfer out'
         self.transferred_out_patients(start_date,end_date).map do |patient_id|
@@ -249,17 +252,26 @@ module PatientService
     dispensing = EncounterType.find_by_name("DISPENSING").id
     amount_dispensed_concept_id = ConceptName.find_by_name("Amount dispensed").concept_id
 
-    Observation.find_by_sql("SELECT e.patient_id,
-prescribed_days_missed(DATE(orders.start_date),DATE('#{end_date}'),equivalent_daily_dose,quantity) AS days_over_due
+    records = Observation.find_by_sql("SELECT e.patient_id,n.given_name,n.family_name, 
+p.gender, p.birthdate ,  DATE(e.encounter_datetime) AS visit_date,
+prescribed_days_missed(DATE(orders.start_date),DATE('#{end_date}'),equivalent_daily_dose,quantity) AS days_over_due,
+identifier AS national_id
 FROM obs 
 INNER JOIN encounter e ON e.encounter_id = obs.encounter_id 
 AND e.encounter_datetime=(SELECT MAX(x.encounter_datetime) FROM encounter x WHERE x.patient_id=e.patient_id)
 INNER JOIN drug d ON d.drug_id = obs.value_drug and d.concept_id IN(SELECT s.concept_id FROM concept_set s WHERE (concept_set = 1085))
 INNER JOIN orders ON orders.order_id = obs.order_id
 INNER JOIN drug_order od ON od.order_id = orders.order_id
+INNER JOIN person p ON p.person_id=e.patient_id
+INNER JOIN person_name n ON p.person_id=n.person_id
+INNER JOIN patient_identifier i ON i.patient_id = e.patient_id AND i.identifier_type = (SELECT patient_identifier_type_id FROM patient_identifier_type pi WHERE pi.name = 'National id')
 WHERE e.encounter_type = #{dispensing} and obs.concept_id =  #{amount_dispensed_concept_id}
 GROUP BY e.patient_id
 HAVING days_over_due >= 21
-ORDER BY e.encounter_datetime DESC,e.date_created DESC").collect{|e|e.patient_id}
+ORDER BY e.encounter_datetime DESC,e.date_created DESC")   
+      (records || []).collect do |r|
+        [r.patient_id,r.given_name , r.family_name , r.gender,
+         r.birthdate , r.visit_date , r.days_over_due ,r.national_id]
+      end
     end
 end
