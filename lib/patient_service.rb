@@ -146,9 +146,27 @@ module PatientService
     given_name = name.split(" ")[0]
     last_name = name.split(" ")[1]
     return [] if given_name.blank? and last_name.blank?
-    Person.find(:all,:joins =>"INNER JOIN person_name USING(person_id)",
+    identifier_type = PatientIdentifierType.find_by_name("National ID").id
+    records = Person.find(:all,
+    :select =>"person.person_id patient_id ,given_name,family_name,gender,birthdate,
+    DATE(encounter_datetime) visit_date,identifier national_id",
+    :joins =>"INNER JOIN person_name n ON person.person_id = n.person_id
+    INNER JOIN patient_identifier i ON i.patient_id = person.person_id AND
+    identifier_type = #{identifier_type}
+    LEFT JOIN encounter e ON e.patient_id = person.person_id 
+    AND encounter_type IN (54,53,68,25,6,51,7,9)",
     :conditions =>["given_name LIKE ? AND family_name LIKE ? AND gender = ?",
-    "#{given_name}%","#{last_name}%",gender],:limit => 100)
+    "#{given_name}%","#{last_name}%",gender],
+    :group => "person.person_id",:order =>"encounter_datetime DESC")
+     
+    demographics = {} 
+
+    (records || []).collect do |r|
+      demographics[r.patient_id] = {:patient_id => r.patient_id,
+        :first_name => r.given_name ,:last_name => r.family_name , 
+        :gender => r.gender,:dob => r.birthdate , 
+        :last_visit_date => r.visit_date , :national_id => r.national_id}
+    end
   end
 
   def self.last_visit_date(patient)

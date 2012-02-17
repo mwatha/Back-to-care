@@ -16,11 +16,10 @@ class SmsController < ApplicationController
     @sms.map do |sms|
       @html+=<<EOF
 <tr>                                                                            
-  <th>#{sms.number} (#{sms.date_created.to_date})</th>                          
+  <th class="delivered_#{sms.delivered}">#{sms.number} (#{sms.date_created.to_date})</th>                          
 </tr>                                                                           
 <tr>                                                                            
-  <td class='line_bottom'>#{sms.message}&nbsp;
-  <span class="delivered_#{sms.delivered}">&nbsp;</span></td>                                   
+  <td class='line_bottom'>#{sms.message}</td>                                   
 </tr>
 EOF
     end

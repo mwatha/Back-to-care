@@ -3,17 +3,13 @@
 <title>Back to care</title>                                      
 <style>   
   .delivered_true {
-    background-color: green;
-    height: 1.8%;
-    width: 12%; 
-    position: absolute;
+    background-color: MediumAquaMarine; /*green;*/
+    width: 299px;
   }
    
   .delivered_false {
-    background-color: red;
-    height: 1.8%;
-    width: 12%; 
-    position: absolute;
+    background-color: PapayaWhip;
+    width: 299px;
   }
    
   span {
@@ -243,12 +239,11 @@ hr {
       <div class="sms_string" id="thread">
         <table id="sent_msg">
           <% @sms.map do |sms| %>
-          <tr class="bgcolor_<%=%>">
-            <th><%=sms.number%> (<%=sms.date_created.to_date%>)</th>
+          <tr>
+            <th class="delivered_<%=sms.delivered%>"><%=sms.number%> (<%=sms.date_created.to_date%>)</th>
           </tr>
-          <tr class="bgcolor_<%=%>">
-            <td class='line_bottom'><%=sms.message%>
-              &nbsp;<span class="delivered_<%=sms.delivered%>">&nbsp;</span>
+          <tr>
+            <td class='line_bottom'><%=sms.message%></span>
             </td>                                   
           </tr>
           <%end%>
@@ -285,7 +280,7 @@ hr {
     <p class="clinic_information">Latest Outcome:&nbsp;<%=@demographics[:latest_state]%></p>
     <!--p class="clinic_information">Latest regimen given:&nbsp;<%#=@demographics[:last_regimen_given]%></p-->
     <p class="clinic_information" style="color: #EE8206;font-family: Tahoma,Verdana,Arial;">Latest drugs given:</p>
-    <% @demographics[:last_drugs_given].map do |name , values|
+    <% (@demographics[:last_drugs_given] || {} ).map do |name , values|
        quantity = values[:quantity]
        dose = values[:dose]
        dispensed_date = values[:dispensed_date].to_date rescue nil
