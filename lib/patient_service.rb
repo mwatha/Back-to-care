@@ -147,7 +147,7 @@ module PatientService
     last_name = name.split(" ")[1]
     return [] if given_name.blank? and last_name.blank?
     identifier_type = PatientIdentifierType.find_by_name("National ID").id
-    records = Person.find(:all,
+    records = Person.find(:all,:limit => 100,
     :select =>"person.person_id patient_id ,given_name,family_name,gender,birthdate,
     DATE(encounter_datetime) visit_date,identifier national_id",
     :joins =>"INNER JOIN person_name n ON person.person_id = n.person_id
