@@ -312,6 +312,11 @@ module PatientService
     dispensing = EncounterType.find_by_name("DISPENSING").id
     amount_dispensed_concept_id = ConceptName.find_by_name("Amount dispensed").concept_id
     db = YAML.load(File.open(File.join(RAILS_ROOT, "config/database.yml"), "r"))[RAILS_ENV]
+  
+    names = ["Died","Alive and getting treatment from another clinic",
+    "Alive but stopped getting treatment","Transferred out","Moved to another location"]
+    trace_outcome_ids = TraceOutcomeType.find(:all,
+      :conditions =>["name IN(?)",names]).collect{|t|t.id}.join(',')
 
     records = Observation.find_by_sql("SELECT e.patient_id,n.given_name,n.family_name, 
 p.gender, p.birthdate , DATE(e.encounter_datetime) AS visit_date,
@@ -325,7 +330,11 @@ INNER JOIN orders ON orders.order_id = obs.order_id
 INNER JOIN drug_order od ON od.order_id = orders.order_id
 INNER JOIN person p ON p.person_id=e.patient_id
 INNER JOIN person_name n ON p.person_id=n.person_id
-INNER JOIN patient_identifier i ON i.patient_id = e.patient_id AND i.identifier_type = (SELECT patient_identifier_type_id FROM patient_identifier_type pi WHERE pi.name = 'National id')
+INNER JOIN patient_identifier i ON i.patient_id = e.patient_id 
+AND i.identifier_type = (SELECT patient_identifier_type_id 
+FROM patient_identifier_type pi WHERE pi.name = 'National id')
+INNER JOIN #{db['database']}.patient_trace_outcome tc ON tc.patient_id = e.patient_id 
+AND tc.trace_outcome_id NOT IN (#{trace_outcome_ids})
 WHERE e.encounter_type = #{dispensing} and obs.concept_id =  #{amount_dispensed_concept_id}
 GROUP BY e.patient_id
 HAVING days_over_due >= 21
