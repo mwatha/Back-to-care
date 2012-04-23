@@ -10,6 +10,7 @@ class PatientTraceOutcome < ActiveRecord::Migration
       t.interger :retired_by                                                    
       t.datetime :retired_datetime                                              
       t.string :retired_reason                                                    
+    end
   end
 
   def self.down

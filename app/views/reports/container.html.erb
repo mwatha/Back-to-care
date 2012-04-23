@@ -45,6 +45,7 @@
     border-spacing: 0;
     font-family: helvetica,arial,sans-serif;
     font-size: 14px;
+    vertical-align: top;
   }
 
   #table-content {
@@ -213,6 +214,8 @@ Reports::<%=@type%>
 <div id = "table-content">
 <% if @type.match(/sms/i)%>
   <%=sms_status_table(@patients,@title)%>
+<% elsif @type.match(/outcome/i)%>
+  <%=traced_outcomes(@patients,@title)%>
 <%else%>
   <%=build_table(@patients,@title)%>
 <%end%>

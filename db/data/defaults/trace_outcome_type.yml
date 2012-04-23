@@ -1,0 +1,58 @@
+--- 
+trace_outcome_type_0000001:
+  id: 1 
+  name: Died
+  description: ""
+  date_created: 2012-02-08 10:33:13 +02:00
+  retired_datetime: 
+  retired: false 
+  retired_reason:
+trace_outcome_type_0000002:
+  id: 2 
+  name: Stop treatment
+  description: 
+  date_created: 2012-02-08 10:33:13 +02:00
+  retired_datetime: 
+  retired: false 
+  retired_reason:
+trace_outcome_type_0000003:
+  id: 3 
+  name: Alive and getting treatment from another clinic
+  description: 
+  date_created: 2012-02-08 10:33:13 +02:00
+  retired_datetime: 
+  retired: false 
+  retired_reason:
+trace_outcome_type_0000004:
+  id: 4
+  name: Alive but stopped getting treatment
+  description: 
+  date_created: 2012-02-08 10:33:13 +02:00
+  retired_datetime: 
+  retired: false 
+  retired_reason:
+trace_outcome_type_0000005:
+  id: 5
+  name: Transferred out
+  description: 
+  date_created: 2012-02-08 10:33:13 +02:00
+  retired_datetime: 
+  retired: false 
+  retired_reason:
+trace_outcome_type_0000006:
+  id: 6 
+  name: Moved to another location
+  description: 
+  date_created: 2012-02-08 10:33:13 +02:00
+  retired_datetime: 
+  retired: false 
+  retired_reason:
+trace_outcome_type_0000007:
+  id: 7
+  name: Alive
+  description: 
+  date_created: 2012-02-08 10:33:13 +02:00
+  retired_datetime: 
+  retired: false 
+  retired_reason:
+

@@ -27,10 +27,20 @@ module PatientService
       :last_visit_date => self.last_visit_date(person_obj) ,
       :last_regimen_given => self.last_regimen_given(person_obj) ,
       :last_drugs_given => self.last_drugs_given(person_obj) ,
-      :latest_state => self.latest_state(person_obj)
+      :latest_state => self.latest_state(person_obj) ,
+      :traced_outcome => self.traced_outcome(person_obj)
     }
 
     return demographics
+  end
+
+  def self.traced_outcome(person)
+    outcome = TraceOutcomeType.find(:first,
+      :joins =>"INNER JOIN patient_trace_outcome p 
+      ON trace_outcome_type.id = p.trace_outcome_id
+      AND p.id = (SELECT id FROM patient_trace_outcome WHERE patient_id = p.patient_id
+      AND p.outcome_date = outcome_date ORDER BY date_created DESC LIMIT 1)",
+      :conditions =>["patient_id = ?", person.id])
   end
   
   def self.get_last_appointment_date_given(person)
@@ -244,6 +254,14 @@ module PatientService
         self.on_antiretroviral_therapy(start_date,end_date).map do |patient_id|
           patients << self.demographics(Person.find(patient_id))
         end
+      when 'Outcome status'
+        self.traced_outcome_status(start_date,end_date).map do |record|
+          patients << {:person_id => record[0] ,:gender => record[3] ,                                            
+                       :dob => record[4] , :first_name => record[1] ,                                
+                       :last_name => record[2],:national_id => record[7],
+                       :outcome => record[6], :outcome_date => record[5] }
+        end
+
     end
     return patients
   end
@@ -317,4 +335,28 @@ ORDER BY e.encounter_datetime DESC,e.date_created DESC")
          r.birthdate , r.visit_date , r.days_over_due ,r.national_id]
       end
     end
+
+    def self.traced_outcome_status(start_date,end_date)                                               
+      db = YAML.load(File.open(File.join(RAILS_ROOT, "config/database.yml"), "r"))["bart"]["database"]
+      
+      records = TraceOutcomeType.find(:all,               
+      :select => "p.patient_id,n.given_name,n.family_name,ps.gender, ps.birthdate,
+      trace_outcome_type.name,p.outcome_date,identifier national_id",
+      :joins => "INNER JOIN patient_trace_outcome p                              
+      ON trace_outcome_type.id = p.trace_outcome_id                             
+      AND p.id = (SELECT id FROM patient_trace_outcome WHERE patient_id = p.patient_id
+      AND p.outcome_date = outcome_date ORDER BY date_created DESC LIMIT 1)
+      INNER JOIN #{db}.person ps ON ps.person_id = p.patient_id
+      INNER JOIN #{db}.person_name n ON ps.person_id=n.person_id
+      INNER JOIN #{db}.patient_identifier i ON i.patient_id = ps.person_id
+      AND i.identifier_type = (SELECT patient_identifier_type_id 
+      FROM #{db}.patient_identifier_type pi WHERE pi.name = 'National id')",
+      :conditions =>["p.outcome_date >= ? AND p.outcome_date <=?", 
+      start_date , end_date]) 
+                             
+      (records || []).collect do |r|
+        [r.patient_id,r.given_name , r.family_name , r.gender,
+         r.birthdate , r.outcome_date , r.name , r.national_id]
+      end
+  end 
 end

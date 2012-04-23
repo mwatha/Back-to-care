@@ -64,13 +64,13 @@ click on the 'Help' menu option at the top.
           <p>The current status of patients who have been traced through sms or patient visits</p>
         </li><br />
         <li>
-          <a href="/reports/container?type=transfer_outs&start_date=<%=(Date.today - 3.months)%>">Transfer out</a>
+          <a href="#">Transfer out</a>
           (<%=(Date.today - 1.month).strftime("%d %b %Y")%>
           &nbsp;to&nbsp;<%=Date.today.strftime("%d %b %Y")%>)
           <p>Patients who have transfered to other clinics for treatment</p>
         </li><br />
         <li>
-          <a href="/reports/container?type=died&start_date=<%=(Date.today - 3.months)%>">Died</a>
+          <a href="#">Died</a>
           (<%=(Date.today - 2.months).strftime("%d %b %Y")%>
           &nbsp;to&nbsp;<%=Date.today.strftime("%d %b %Y")%>)
           <p>Patients who have been reported as "Dead"</p>

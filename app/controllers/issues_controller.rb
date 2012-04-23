@@ -33,6 +33,7 @@ EOF
   def show
     @demographics = PatientService.demographics(Person.find(params[:id]))                                                                    
     @sms = Sms.find(:all,:conditions =>["person_id=?",params[:id]])
+    @traced_outcomes = TraceOutcomeType.find(:all)
     @report = params[:title]
   end
 
