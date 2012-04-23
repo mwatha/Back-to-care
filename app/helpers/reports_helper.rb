@@ -27,7 +27,7 @@ EOF
   <td>#{demographics[:dob]}</td>                                                                     
   <td>#{demographics[:last_visit_date]}</td>                                                                     
   <td><a href="/issues/show?id=#{demographics[:person_id]}&title=#{title}" class="show_details">Show</a>|
-  <a href="/issues/sms/#{demographics[:person_id]}" class="show_details">Send sms</a>
+  <a href="#" class="show_details">Send sms</a>
   </td>                                                                     
 </tr>                                                                           
 EOF
@@ -71,7 +71,7 @@ EOF
   <td>#{demographics[:send_date].to_date rescue nil}</td>                                                                     
   <td>#{demographics[:status]}</td>                                                                     
   <td><a href="/issues/show?id=#{demographics[:person_id]}&title=#{title}" class="show_details">Show</a>|
-  <a href="/issues/sms/#{demographics[:person_id]}" class="show_details">Send sms</a>
+  <a href="#" class="show_details">Send sms</a>
   </td>                                                                     
 </tr>                                                                           
 EOF
@@ -110,7 +110,7 @@ EOF
   <td>#{demographics[:outcome]}</td>                                                                     
   <td>#{demographics[:outcome_date]}</td>                                                                     
   <td><a href="/issues/show?id=#{demographics[:person_id]}&title=#{title}" class="show_details">Show</a>|
-  <a href="/issues/sms/#{demographics[:person_id]}" class="show_details">Send sms</a>
+  <a href="#" class="show_details">Send sms</a>
   </td>                                                                         
 </tr>                                                                           
 EOF
