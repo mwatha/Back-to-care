@@ -1,0 +1,386 @@
+id: 3; body: Cool thanks; address: +265999045530 
+id: 7; body: Good morning Iceman  what time are we meeting you know it's $$ time .hv a great day.; address: +265999045530 
+id: 11; body: Sent; address: +265993389495 
+id: 15; body: Sori man data dictionary yafika palibe ndi proposal..:-) ndinayiwala another thng, hw da project may be taken further by others :-P; address: +265993389495 
+id: 19; body: List of uploaded documents, uploader and date uploaded; address: +265993389495 
+id: 23; body: Yanga ikukanika sindibwera itheke kaye; address: +265993389495 
+id: 27; body: New cabinet mawa...; address: +265999413124 
+id: 31; body: Goodnight.tiwonana mawa; address: +265999425038 
+id: 35; body: Ok.ine ndipanga version yoyamba,koma yosatha; address: +265999425038 
+id: 39; body: Ok.see you mawa.report wamaliza?link atsegula; address: +265999425038 
+id: 43; body: Hie dzila.mawa ubwera.; address: +265999425038 
+id: 47; body: Ndaona will send at 12 :-); address: +265993389495 
+id: 51; body: Nde ndikonze kaye; address: +265993389495 
+id: 55; body: K let me check; address: +265993389495 
+id: 59; body: K.. Koma kwa tsala za dzulo zija ; address: +265993389495 
+id: 63; body: Ndikulimbana ndi report..pdf created koma ma query wo eh; address: +265993389495 
+id: 67; body: :-) gud; address: +265993389495 
+id: 71; body: Ulibwino kapena wabalalika; address: +265993389495 
+id: 75; body: Hello World; address: +265995258083 
+id: 79; body: Hello World; address: +265995258083 
+id: 83; body: Training at 17:00/17:30hrs today at civo with a surprise right after ; address: +265999367860 
+id: 87; body: Yo my nigger plz if u cn find tym help a brother out,,  ,shaaaaa zavuta ndikukanika kupanga chilichose coz I dnt kmw how it wil luk plz yo....; address: +265888951225 
+id: 91; body: Bobo.will you come; address: +265999425038 
+id: 95; body: You have successfully added a Airtel Mini bundle on 23 Apr 21:18:17 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 99; body: Then wil show u 2moro.; address: +265999300682 
+id: 103; body: I hav finished editng the template. I jus hav to Show  u 4 corections. R u goin to xool 2moro; address: +265999300682 
+id: 107; body: Fair usage limit: less than 20 percent left for Airtel Mini on 23 Apr 06:03:00;; address: Airtel 
+id: 111; body: You have successfully added a Airtel Mini bundle on 22 Apr 12:15:54 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 115; body: Yo .ndikuchokapo kaye ndiye we shud just do it tmro.....; address: +265888951225 
+id: 119; body: Please call back on (Ndiyimbileni pa)265999412011.Dial *160*1# and make "God is good all the time by Don Moen" as your Hello Tune. Each song costs MK15.00.; address: +265999412011 
+id: 123; body: Thanx 4 waking me up,gdmorning ; address: +265999612950 
+id: 127; body: Thanx; address: +265999612950 
+id: 131; body: Undidzutse 12 plz ndagwira mwendo wako...; address: +265999612950 
+id: 135; body: Bola iwe!ine ndekayatu ndione sindimagona today wil be last day kugona...gdnyt ndidzuka midnyt wat tym r u sleeping? ; address: +265999612950 
+id: 139; body: From Chembe_626395207 :
+Ma main man ICEMAN, ha ha ha, hw is it? Its a friday again so whats cooking in the capital? Wish i ws there 2 rock wit u.. i seriously need to come home
+Visit sendmassage.com for free texting; address: +15197292791 
+id: 143; body: Main project sikuyenda kaya iwe ili pati?; address: +265999612950 
+id: 147; body: Yo my nigger dnt 4gt I & I if u hv tym....peace; address: +265888951225 
+id: 151; body: Thank you Russel(Captain), Santana and Joe for showing up today again for light training at civo out of a team of 15 you guys are inspiring me and helping me get back into shape. This is my last official message that i'll be sending out as pirates team manager consider it my resignation but I'm still a pirate ; address: +265999367860 
+id: 155; body: Not yet!u?; address: +265999612950 
+id: 159; body: ok; address: +265999953449 
+id: 163; body: Watching csi miami jst remembered u paja u hate it...lol hw r u today with assignments? ; address: +265999612950 
+id: 167; body: are u interested in presenting your back to care project this afternoon? Neal Leash from Dimagi will do a brown bag on CommCare from 12:00 and the discussion will follow.  You're welcome to both. ; address: +265999953449 
+id: 171; body: Dear Subscriber - Your DSTV subscription will expire soon. Please make payment arrangements. Please ignore this reminder if payment has been made; address: +45609910301 
+id: 175; body: Malonje, 
+Kamuzu: za bo? 
+Bingu: bo! 
+Kamuzu: Waaona a Malawi? Ndiautsirutu. Samayamika. 
+Bingu: Makape! Ndaachokerako! Koma ndiye ndaanjoya! 
+Kamuzu: kodi Bakili sakubwera bwanji? 
+Bingu: Ausilu aja! Kukonda mabebi basi!
+Kamuzu: Mabebi ndi msana wofoila uja?; address: +265999413124 
+id: 179; body: Ice yo boi bck in town; address: +265992159524 
+id: 183; body: we hav food at home for u. u can come and eat. joan; address: +265881026837 
+id: 187; body: Training at 17:00/17:30hrs (5:00/5:30pm) at CIVO.....; address: +265999367860 
+id: 191; body: Ndi machine  ... Game tionela kwanu ?Barca; address: +265999045530 
+id: 195; body: Afternoon Gents and Gentle Lady,..Captain Russ Mak has proposed that Pirates train as a team tmrw bearing in mind the tough schedule coming up tmrw I don't think training can be perceived as competitive in nature so let's show up tmrw and stop using mourning period as an excuse to not show up.  ; address: +265999367860 
+id: 199; body: Christina how ? Iceman; address: +265999045530 
+id: 203; body: Ma Coaches and Captains,
+I hope you have arranged your training days otherwise just sitting phwii and doing nothing you will remain excatly on the same sport where you are right now at the end of the season.; address: +265999919328 
+id: 207; body: Dear Subscriber - Your DSTV subscription will expire soon. Please make payment arrangements. Please ignore this reminder if payment has been made.; address: +45609910301 
+id: 211; body: morning,wat ws th final score?; address: +265992159524 
+id: 215; body: gud show,am on my 1st stop,500km 4m DAR.; address: +265992159524 
+id: 219; body: wachinya ndani?; address: +265992159524 
+id: 223; body: nice; address: +265992159524 
+id: 227; body: game ikuti bwanji?; address: +265992159524 
+id: 231; body: Palibe man only....document layout hy youu cn you plz help out with e hotel systwm; address: +265888951225 
+id: 235; body: Am up writting the use case description i will send u soon...be on skype....kate ; address: +265888340812 
+id: 239; body: Better luck nxt time dude am sure theirs smthn better instals...; address: +265999412011 
+id: 243; body: Wat does that leave u???; address: +265999412011 
+id: 247; body: Hows tha proposal goin have u submitted???; address: +265999412011 
+id: 251; body: Oh yeah.... Chabwino ndakumbukila... ; address: +265999412011 
+id: 255; body: I dnt wanna die owing lol.....; address: +265999412011 
+id: 259; body: Indulgee, how much was the donation u made to my NBS bank???; address: +265999412011 
+id: 263; body: Sorry homie, will you able to help me today...; address: +265888343143 
+id: 267; body: Done ; address: +265995417604 
+id: 271; body: Am depositing the money wats your service center? ; address: +265995417604 
+id: 275; body: Oky,goodnite then...that is if you are going to sleep...lo!; address: +265999933125 
+id: 279; body: Eya ndibwera; address: +265999933125 
+id: 283; body: Hahahhah kufuna ndindimvetsa kuwawa eti...mazira iwe eti...wakhwana...lol!; address: +265999933125 
+id: 287; body: Oky...zili bwino,ine trying to upload rad now.; address: +265999933125 
+id: 291; body: Oky,bola inu,muli boo; address: +265999933125 
+id: 295; body: Hahhahhaha....eya kaya...ma upload akuyambika mmawa...ntchito za greenwich; address: +265999933125 
+id: 299; body: Dear Customer, Your bundle (Airtel Mini) expired on 15 Apr 19:29:00;; address: Airtel 
+id: 303; body: You have successfully added a Airtel Mini bundle on 15 Apr 19:23:29 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 307; body: Hey Mwatha, any luck? I'm desperate! Touch said he doesn't have nothing, even MK2,500 will be ok...; address: +265888343143 
+id: 311; body: Gents it seems most people are sceptical about playing during the mourning period...so its up to the captains and coach to decide , I simply was responsible for notifying y'all on trojans intention to play a friendly today..good day ; address: +265999367860 
+id: 315; body: Am supposed to go meet her this morning ; address: +265999923508 
+id: 319; body: Fair usage limit: exhausted for Airtel Mini on 15 Apr 09:13:59;; address: Airtel 
+id: 323; body: i learn 4m the and u the 3 maskateerz.lol!; address: +265992159524 
+id: 327; body: nde wadwalatu.; address: +265992159524 
+id: 331; body: wina achokapo uleletu pamenepa.lol!.; address: +265992159524 
+id: 335; body: wayamba kuledzera ndani?; address: +265992159524 
+id: 339; body: by Thursday.; address: +265992159524 
+id: 343; body: nice,am on tha road headn TZ.; address: +265992159524 
+id: 347; body: ha ha ha zatheka bwanji kwawo kwa barca kukhala kopanda game.; address: +265992159524 
+id: 351; body: ha ha ha ha apo uli na iwe.; address: +265992159524 
+id: 355; body: ako kamene uli nako ako niye kati?,kali mushe,manje unaziwa kusankha.; address: +265992159524 
+id: 359; body: shinda man,kameneka nde kati?; address: +265992159524 
+id: 363; body: U ll jst do it 4 me whn i cm, i don knw whn though. Friday brthdy yanga; address: +265999346656 
+id: 367; body: Mmmh I will try linda ; address: +265999923508 
+id: 371; body: Was pa filling station ; address: +265999923508 
+id: 375; body: Yes; address: +265999346656 
+id: 379; body: Stil nt workin!; address: +265999346656 
+id: 383; body: Ok.; address: +265999339353 
+id: 387; body: I know am going to go again; address: +265995417604 
+id: 391; body: Malswitch still hasn't sorted out the card thing, akuti I shld go again masana. am rily sorry for the inconvenience ; address: +265995417604 
+id: 395; body: Ikukanabetu?!!; address: +265999346656 
+id: 399; body: Comin in a minute; address: +265999412011 
+id: 403; body: Game slated for 3:30 at Civo. I'm still waiting for some people to disclose availability, some have but I guess the rest are waiting for me to keep asking till the actual game day..; address: +265999367860 
+id: 407; body: Ha ha ha ha ha; address: +265992159524 
+id: 411; body: its friday tha 13th,did u notice?.; address: +265992159524 
+id: 415; body: Afternoon/evening pirates, Trojans have proposed a friendly on Sunday at Civo, it seems like a great idea to me since we haven't really trained much and it would be a chance to scope out our competition please disclose your availability cheers.; address: +265999367860 
+id: 419; body: OK going to town now; address: +265995417604 
+id: 423; body: OK I'll see if I can manage to go to town, is 25 OK for now?; address: +265995417604 
+id: 427; body: Mwatha internet yathawanso?!! What shud i do?; address: +265999346656 
+id: 431; body: Miss u mre hw is it goin dat side. ; address: +265999489492 
+id: 435; body: Hahahaha when u ready find me home; address: +265999412011 
+id: 439; body: U gud to do chamz for abit??? Happy hour got a few quid?; address: +265999412011 
+id: 443; body: Ok cool; address: +265999412011 
+id: 447; body: U home yet???? ; address: +265999412011 
+id: 451; body: Thanks.sinafike koma.tikumana mawa; address: +265999425038 
+id: 455; body: Well see how it plays out....; address: +265999412011 
+id: 459; body: Not a chance...lol wudav ths weekend buh i figured tikakamilana dnt wont strings apa; address: +265999412011 
+id: 463; body: Hahaha nono; address: +265999412011 
+id: 467; body: Yea dats wat am think...i i had tapped dat wuda bn hard...; address: +265999412011 
+id: 471; body: Yep she feels invisible like nobody lookin en feel comfy to be all over me... Zitivuta nazo izi..... Will pull bck a lil',,; address: +265999412011 
+id: 475; body: Dude its sstartin to feel like she all in...; address: +265999412011 
+id: 479; body: Yea gone went back mondae.. I think i shud pull bck we gotten close...; address: +265999412011 
+id: 483; body: Indulge how u bn man? ; address: +265999412011 
+id: 487; body: Friday morning; address: +265992159524 
+id: 491; body: man,ndinayimva kukoma bad,imathawa ride imeneyija; address: +265992159524 
+id: 495; body: BT tangobwera ndi mama timazathayima masten b bck in town friday.; address: +265992159524 
+id: 499; body: zofunika; address: +265992159524 
+id: 503; body: but hws lyf?; address: +265992159524 
+id: 507; body: most of em neva seen,so u knw wat that mean,ballers play ground.; address: +265992159524 
+id: 511; body: massive ma boys amachepa ndati apa anthu sa sh...,lol!.; address: +265992159524 
+id: 515; body: You have successfully added a Airtel Mini bundle on 11 Apr 18:54:01 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 519; body: ICEMAN CHAMBERS.; address: +265992159524 
+id: 523; body: Bundle expiry: exhausted (#132, Airtel Mini, 10 Apr 14:11:00);; address: Airtel 
+id: 527; body: Afternoon gents, training can take place by civo although I don't know how practical it is since "we in mourning"..otherwise if its appropriate then I don't see an issue..the kit will be sorted out soon enough and we're still waiting on some pledges, so those that are ready please come forth..Pirates basketball ; address: +265999367860 
+id: 531; body: Tamalizani zimenezo ine ndikuthana ndi final report; address: +265999612950 
+id: 535; body: Iwe zigona uzikula; address: +265999612950 
+id: 539; body: Basi zigona :-) ; address: +265999612950 
+id: 543; body: Okey ine ndikuvela ll cool j eti...; address: +265888951225 
+id: 547; body: Ha ha ha ndiye ayisotu...pano ayaka?; address: +265888951225 
+id: 551; body: Alryt! wk ino uzidya zabotu.....lol; address: +265999612950 
+id: 555; body: Thanx!hahaha!transmbembembe eti tiyani nazo...is ur brother gone?; address: +265999612950 
+id: 559; body: Tilipo ambiri eti!mawa usayiwale kubweretsa adapter ija mwina ndikagula ina...ndikufuna mavolts ndi zina zotero...Rad wamaliza ; address: +265999612950 
+id: 563; body: Mmmm!ndezosayendatu...ayi kuno lights aliko koma ndikusowa zolemba mu design...hv u send ur report kwa chikumba? ; address: +265999612950 
+id: 567; body: Sizikuyenda:-( kaya iwe zikuyenda?; address: +265999612950 
+id: 571; body: U home?????; address: +265999412011 
+id: 575; body: U home??????; address: +265999412011 
+id: 579; body: Were is garden roses in 47 is that wer masa got married???; address: +265999412011 
+id: 583; body: You have successfully added a Airtel Mini bundle on 08 Apr 13:58:20 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 587; body: No just soome errands????; address: +265999412011 
+id: 591; body: Does george have a car for hire????; address: +265999412011 
+id: 595; body: Indulge sopano! Sunakomoke????; address: +265999412011 
+id: 599; body: Ndafika; address: +265999167742 
+id: 603; body: Do u ve fuel in yo car?; address: +265999346656 
+id: 607; body: Mwatha whr u? Am in l city nw n am in need of fuel 5ls only; address: +265999346656 
+id: 611; body: You have successfully added a Airtel Mini bundle on 06 Apr 11:41:35 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 615; body: Fair usage limit: exhausted for Airtel daily on 06 Apr 11:31:47;; address: Airtel 
+id: 619; body: Blessed easter guys...lets take this tym for reflection and learn the power of forgiveness. Its thru grace that we are the pirates that we are!; address: +265991350031 
+id: 623; body: Pirates have lost 2 points. No one came to do the tables today. Now bottom of the log standing with 0 points.
+Them....Useless; address: +265999919328 
+id: 627; body: FYI should pirates fail to report for table duties 2pts will be deducted which to date are point that the team can't afford to lose ; address: +265999367860 
+id: 631; body: Afternoon Pirates, today we are on table duties at ABC and have to report at 6-630 so should we hold training today it seems a bit more practical to train at ABC outdoor court, CIVO I'd not usable!..but most importantly table duties, its more than just playing the game its helping run the games so let's be there ; address: +265999367860 
+id: 635; body: Hahahaha a drop in the ocean i feel you bra!!
+ ; address: +265999412011 
+id: 639; body: You have successfully added a Airtel Mini bundle on 04 Apr 14:28:32 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 643; body: Its T.G.kamanga 0070115208045 city centre branch....will be grateful; address: +265999412011 
+id: 647; body: hi,mumz askn if uncle zai sent u ha money,if he hasnt sh said u shud call to remind hm coz anaphiri needs to b paid.hop yo gud and xul too.wasowatu.joan; address: +265881026837 
+id: 651; body: Ice am can u deposit cash  in my nbs bank...? 3grand; address: +265999412011 
+id: 655; body: Fair usage limit: less than 20 percent left for Airtel daily on 04 Apr 02:59:01;; address: Airtel 
+id: 659; body: Bundle expiry: exhausted (#125, Airtel Mini, 03 Apr 23:45:00);; address: Airtel 
+id: 663; body: Court is unusable so training is off unless y'all want to work on fitness otherwise we meet thurs ; address: +265999367860 
+id: 667; body: Guys a little tied up today won't be able to make it training, have a good session ; address: +265999367860 
+id: 671; body: Can those eho have yet to fulfil they're pledges toward the kit make sure they bring they're pledges to todays training ; address: +265999367860 
+id: 675; body: You have successfully added a Airtel Mini bundle on 02 Apr 23:06:09 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 679; body: at the boarder kuswa special kaye b in town mawa usiku.; address: +265992159524 
+id: 683; body: ayt,planning 2 go ther as wel.; address: +265992159524 
+id: 687; body: Shindaman wassup 4 th easter?.; address: +265992159524 
+id: 691; body: Special wapa boarder tsopano wafa.; address: +265992159524 
+id: 695; body: Hi mwatha, hope ur fine. wanted to check if u've sent the phone?; address: +265995417604 
+id: 699; body: from debonaires to limbe... ; address: +265999412011 
+id: 703; body: Taxi mpaka 3grnd... Fuel situation here is bad...; address: +265999412011 
+id: 707; body: Am hvin a cold one...lol; address: +265999412011 
+id: 711; body: Arrived safe...; address: +265999412011 
+id: 715; body: This couple next to me is having chi pizza ...am jealous....mxiiii; address: +265999412011 
+id: 719; body: Dear Customer, Your bundle (Airtel Mini) expired on 01 Apr 09:57:00;; address: Airtel 
+id: 723; body: You have successfully added a Airtel Mini bundle on 01 Apr 09:54:44 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 727; body: Bundle expiry: exhausted (#123, Airtel Mini, 31 Mar 20:52:00);; address: Airtel 
+id: 731; body: Wl send by the 12th. thanx again; address: +265995417604 
+id: 735; body: I knw, stl waitng for u to gv me ur account details. am saving up, wana gv u atleast 30 at once. then the 10 later.; address: +265995417604 
+id: 739; body: Ok thanx :); address: +265995417604 
+id: 743; body: Hey mwatha :) did u manage to find any1 huz cuming ths syd?; address: +265995417604 
+id: 747; body: Gents, and gentle lady turns out the kit is at 30 not 20, so we really need to come together and sort this issue out a.s.a.p. Some of us work but are failing to respond to a simple text message your commitment is in doubt. Those that have already communicated and contributed much appreciated..; address: +265999367860 
+id: 751; body: Thanks Mwatha...; address: +265999265721 
+id: 755; body: Today is the day papa pirate Mr Lumbani Manda was born let's all wish our birthday boy a very happy birthday..God bless for those who don't have his number its +265999265721; address: +265999367860 
+id: 759; body: sent u 250 units by mistake :( pls send 200 to Mirie 0999952637; address: +265999953449 
+id: 763; body: Dear Customer, Your bundle (Airtel Mini) expired on 29 Mar 18:31:00;; address: Airtel 
+id: 767; body: You have successfully added a Airtel Mini bundle on 29 Mar 18:28:06 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 771; body: hie! dis is chiku, hav been tryng to send u my design sttage but the file its failng 2 attach. hop u wil go to xool 2moro. sory 4 sendng u message at dis late hour. gudnite; address: +265991844456 
+id: 775; body: I'm still suffering from last night so I don't think I wanna drink tonight! What time are you going?; address: +265888343143 
+id: 779; body: Oh ok enjoy!; address: +265888343143 
+id: 783; body: Home, wassup?; address: +265888343143 
+id: 787; body: Performance and adaptation. Koma evryone seems determined apart from one nde competition is high.; address: +265991628640 
+id: 791; body: I hope so, its like BBA!; address: +265991628640 
+id: 795; body: It wz ok, enlightening and demotivating a little. Coz we r 6 and they will pick 3 after 2wks.; address: +265991628640 
+id: 799; body: Gulani Nyimbo pa mtengo wa MK15. Imbani *160*1# kuti mugule Someone Like you ya Adele, *160*2# kuti Mugule Chop My Money ya P Square, *160*5# kuti mugule Mundikhudze ya Ethel Kamwendo, *160*6# kuti mugule Wa CV ya Boo ya Maskal.; address: Airtel 
+id: 803; body: Join us in thanking God as we celebrate the birth of our son Zota Ray Munthali. Chimango n Alice
+
+Sent from my HTC Desire S; address: +265995401766 
+id: 807; body: 3y Mwatha,its Yamisi.How u doing?Thanks4 saturday,have a lovely week,u really nice and friendly2.Stay blessed and good night,pass my regards2 ur friend; address: +265881888917 
+id: 811; body: You have successfully added a Airtel Mini bundle on 27 Mar 17:46:25 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 815; body: morning. thnk aven.t bn successful. sob!sob!; address: +265999923420 
+id: 819; body: You have successfully added a Airtel Mini bundle on 25 Mar 19:22:51 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 823; body: Hey guys we played a good game Vs ABC we lost 60-53 in the end but it was a very tight game, they're defending league champs so lots of positives to take out.; address: +265999472800 
+id: 827; body: I hope mwagula magetsi....lil; address: +265999412011 
+id: 831; body: Fresh...gud to go!!!!!; address: +265999412011 
+id: 835; body: Airtel Yabooka! Patani mphindi 58 zoyimbila 9pm usiku mpaka 6am mmawa kwa 7days kuchoka tsiku logulira pogula chezani 386 ndi MK386. Imbani *415#.; address: Airtel 
+id: 839; body: Am off to town.. Lookin for sme idiot meetn up wit hm pa cresta; address: +265999412011 
+id: 843; body: Hahaha ok; address: +265999412011 
+id: 847; body: Sunagule magetsi; address: +265999412011 
+id: 851; body: Mwatha bwanali where r you; address: +265999412011 
+id: 855; body: Ok no worries, game is at 2 at abc vs ABC.; address: +265999472800 
+id: 859; body: You have successfully added a Airtel Mini bundle on 23 Mar 20:02:51 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 863; body: Yrah am home; address: +265999412011 
+id: 867; body: da shoe guy dropd in so i think i may just pay hm tomorrw then u sort out month end; address: +265999412011 
+id: 871; body: Ok fine... ; address: +265999412011 
+id: 875; body: Dude let me knw if we cnt hack the phne issue.this wkend...; address: +265999412011 
+id: 879; body: Practice today at Civo, 530, if you cant make it please excuse yourself before 3 even if you send a please call otherwise you'll be fined 200
+we have a game this Saturday at ABC against ABC 230, lets be on time   
+Francis we need to sort out your transfer fee of 2,000 otherwise you ineligible to play by Fri
+Amos, Joe, Adam, Chawanagwa and all the new guys we really need to sort out your IDs asap otherwise you too cant play, i posted the number of the guy making the IDs otherwise ask do it from Dean or Lumbani   
+come on guys we need to be more proactive than this, shudnt be on each other's case about the same thing over and over its tiring and thats why sum of us eventually give up becoz it seems like you dont care about the team either so why bother ; address: +265999212890 
+id: 883; body: Am at pacific city centre now.....; address: +265999412011 
+id: 887; body: You have successfully added a Airtel Mini bundle on 21 Mar 20:15:59 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 891; body: Your friend Pete Roc has invited you to join Path: http://path.com/download/4f6a120be9b6cc19ae034eb7; address: +15106929015 
+id: 895; body: 3 Things I know about you: 1) You cannot say "P" without your lips touching 2) You just tried 3) You are now smiling and forwarding this. Subscribe to receive Jokes send joke to 2050; address: +2050 
+id: 899; body: You have successfully added a Airtel Mini bundle on 21 Mar 16:48:53 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 903; body: Thnx!; address: +265991628640 
+id: 907; body: Can i email to u?; address: +265991628640 
+id: 911; body: kusowaku? tinkadziwa kuti once clara is gone inunso basi. iwe, i need clement's number, innoz friend, u guys were tgether at data,he works 4 world vision.; address: +0111733882 
+id: 915; body: Learn how to live a healthy life. Get daily health tips at MK25 per SMS. Send HEALTH ON to 770 to start receiving your tips today. ; address: Airtel 
+id: 919; body: Hey someones selling an "I-phone 4S" still in the box etc at K220,000. For those of you who are into such.; address: +265999472800 
+id: 923; body: Thanx; address: +265992159524 
+id: 927; body: Shinda man can u send me Theo's #; address: +265992159524 
+id: 931; body: Guys practice tomorro 530, the new guys can you please to try and make it becoz we've a game this weekend against ABC, becoz Francis transferred from Trojans we need to pay an extra 2,000 before he can play but the other guys Amos, Joe, Adam, Eric, Joy, Chawanagwa you'll need to get IDs made  before you can play, we're running out of time as you can see, i posted all the details in the group on facebook  ; address: +265999212890 
+id: 935; body: You have successfully added a Airtel Mini bundle on 19 Mar 09:39:58 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 939; body: 0888589415; address: +265993030442 
+id: 943; body: Gulani Nyimbo pa mtengo wa MK15. Imbani *160*1# kuti mugule Allahoma Ehdena ya AlShaikh Abdul Rahman, *160*2# kuti mugule Mtendere ya Patience Namadingo, *160*3# kuti mugule Mkhale Nane ya George Mkandawire, *160*11# kuti mugule Udalire ya Maskal, *160*12# kuti mugule Usamasowe ya Skeffa.; address: Airtel 
+id: 947; body: Tsopano mukhonza kulandira mawu a Mmalembo Oyera mmawa uli wonse pa foni yanu. Tumizani mawu oti CHITSIME ku 51992 kuti 
+muyambe. Mtengo wa SMS ndi Mk22 ; address: Airtel 
+id: 951; body: 100% more browsing from Airtel, dial *301*1# to buy Airtel Daily bundle for Mk80 (20MB) and receive another 20MB for free. Bundle valid for 1 day ; address: Airtel 
+id: 955; body: You have successfully added a Airtel Mini bundle on 17 Mar 23:35:28 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 959; body: Ref ID: 112031711023486 You have received a credit of MK250 from 265999953449.; address: +151 
+id: 963; body: Just saw ur email to Dignitas. I think you should text them as well in case they don't check their mail. Thanks; address: +265999953449 
+id: 967; body: Mwatha wn do u thnk u wl be able to send the phone? n when do u want the money?; address: +265995417604 
+id: 971; body: Text me Jinthas number; address: +265999412011 
+id: 975; body: Wats gud; address: +265999412011 
+id: 979; body: 100% more browsing from Airtel, dial *301*1# to buy Airtel Daily bundle for Mk80 (20MB) and receive another 20MB for free. Bundle valid for 1 day ; address: Airtel 
+id: 983; body: can u pls send me Theo's #.; address: +265992159524 
+id: 987; body: 100% more browsing from Airtel, dial *301*1# to buy Airtel Daily bundle for Mk80 (20MB) and receive another 20MB for free. Bundle valid for 1 day ; address: Airtel 
+id: 991; body: online anywhere?; address: +265999953449 
+id: 995; body: aaaah ok sir.; address: +265992159524 
+id: 999; body: killer ice mang'ina apsatu.; address: +265992159524 
+id: 1003; body: Zaine in the building...... Chamz; address: +265999412011 
+id: 1007; body: Dance all over mee aah aah aah aah aah I feel like am flotting wit Xtina at chamz; address: +265999412011 
+id: 1011; body: Ok.ndinakulimbana nazo.zanditopetsa; address: +265999425038 
+id: 1015; body: Ma project akuyenda bwanji.tithawa yotha kale ndithu; address: +265999425038 
+id: 1019; body: Ok jus checking :) ; address: +265995417604 
+id: 1023; body: Hey are u stl in blantyre?; address: +265995417604 
+id: 1027; body: Sent To ALL THE Pirates:
+Gents, in just over an hour's time, I will be confirming with Central Knights about taking them to Mponela. from what I'm gathering from the Pirates is you all don't give a flying fuck about anything, for grown ass man to be behaving like this is a shame indeed.
+At excatly 2:30pm if I don't hear from you I will gather you guys were never interested in the bonding trip at all. surely for one full week you couldn't manage to organise yourselves. ; address: +265999919328 
+id: 1031; body: Shinda man,wadya ndani zimenezizi.; address: +265992159524 
+id: 1035; body: You have successfully added a Airtel Mini bundle on 15 Mar 23:05:07 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 1039; body: I kno you in Bt saw on facebook; address: +265999212890 
+id: 1043; body: Only 2 people showed up, Harris and Francis
+Lumbani, Joe, Mada and Dean properly excused themselves, i dont about the rest  ; address: +265999212890 
+id: 1047; body: Begin every morning with a laugh. Send JOKE to 901 and receive funny jokes that will make your day. MK22/SMS
+
+ ; address: Jokes 
+id: 1051; body: Gulani Nyimbo pa mtengo wa MK15. Imbani *160*1# kuti mugule Allahoma Ehdena ya AlShaikh Abdul Rahman, *160*2# kuti mugule Mtendere ya Patience Namadingo, *160*3# kuti mugule Mkhale Nane ya George Mkandawire, *160*4# kuti mugule Ukadutsa ya Sonye, *160*5# kuti mugule Unamata ya Piksy.; address: Airtel 
+id: 1055; body: From Chembe_626395207 :
+Hey bro, hw is it hanging, drive safely on the streets of BT there are many ladies searching for tall, dark and handsome guys, lol. ha ha ha...
+Visit sendmassage.com for free texting; address: +15197211910 
+id: 1059; body: Gentlemen good morning. Just one concern, the main issue that was highlighted at our Rude Awakening Meeting was "COMMUNICATION" a lot of y'all are not responding to these communique's..we have a trip on sunday and still not many have responded, what's going on guys?? Seriously a simple form of response would be good..PIRATES! ; address: +265999367860 
+id: 1063; body: Wassup; address: +265999412011 
+id: 1067; body: Thanks alot though. lyk rily appreciate it; address: +265995417604 
+id: 1071; body: Are u foreal! yeay :) ave got ten grand nw cld gv u tomoro.; address: +265995417604 
+id: 1075; body: Afternoon Pirates, we're oganising a trip to Mponela to serve as a team building exercise "a get to know your fellow pirate" trip has been organised for sunday afternoon, please communicate to let us know if you'll be available. Also so far only Mr Mafulekas vehicle has been made available cost free, if others can also provide transport please let us know otherwise we'll have to shack up in the pickup; address: +265999367860 
+id: 1079; body: You have successfully added a Airtel Mini bundle on 14 Mar 12:43:10 and have been credited with a bonus Airtel Mini bundle.;; address: Airtel 
+id: 1083; body: Please call back on(Ndiyimbileni pa)265991510833.Send START 2526588 to 1500 and get DISTURBIA by Rihanna as your Hello Tune, MK55 (Registration + download).; address: +265991510833 
+id: 1087; body: Please call back on(Ndiyimbileni pa)265991510833.Send START 2526588 to 1500 and get DISTURBIA by Rihanna as your Hello Tune, MK55 (Registration + download).; address: +265991510833 
+id: 1091; body: Morning guys so in today's special at game features some spalding basketballs going at 1560, I know resources are difficult right now but it looks like a bargain if we're financially capable please holla back; address: +265999367860 
+id: 1095; body: Hahahahaha!; address: +265999171467 
+id: 1099; body: Ok! I do agree with you.; address: +265999919328 
+id: 1103; body: To The Manager and The Team Coaches:
+The trip to Mponela on Sunday is confirmed my mate an me will pay for the drinks that is soft drinks, coz if its alcohol it will be expensive on our part. 
+Should there be alcohol? We need to agree as the Heads, what your take? ; address: +265999919328 
+id: 1107; body: This message has been sent to:- Mada; Amos; Dean; Harris; Lumbani; Simba; Mwatha; Simba
+I have confirmed with my friend in Mponela for the Sunday trip. Soft drinks will be provided. I don't know if we should allow alcohol. My car is available at no cost. We need to buy our nyama to take with us there. ; address: +265999919328 
+id: 1111; body: Hey guys if you all want, we have 8 peace corps people that want to scrimmage pirates on thurs night...And maybe even again on fri. Let me know if you're interested. From Adam; address: +265999472800 
+id: 1115; body: Enjoy 100% more browsing with Airtel Internet; Dial *301*8# for Airtel Fun with 12MB and receive another 12MBs for free for Mk40. Bundle valid for 1 day.
+
+ ; address: Airtel 
+id: 1119; body: Enjoy 100% more browsing with Airtel Internet; Dial *301*8# for Airtel Fun with 12MB and receive another 12MBs for free for Mk40. Bundle valid for 1 day.
+
+ ; address: Airtel 
+id: 1123; body: Hie mwatha,how r yo doin?hop u're okey.i just want 2say helo 2u,extend ma greetn 2ma,joana.9t!; address: +265999305053 
+id: 1127; body: Evening gents, just wanted to remind you all official training day is tomorrow I'm assuming we're using CIVO court seeing as what ever funding we have is meant to go towards the completion of registration. There a couple of logistical issues still being ironed out. Those that pledged contributions toward registration please make sure you bring that tmrw..otherwise if anything feel free to contact me The team Manager (Simba) on this number PIRATES!; address: +265999367860 
+id: 1131; body: Nde kuyithawa yomaliza kale.tiyeni nazo.tikafikako; address: +265999425038 
+id: 1135; body: All gud man ...having seniors cookin tje food iz straight up AYOBA; address: +265999412011 
+id: 1139; body: Ulikuti; address: +265999045530 
+id: 1143; body: Coz we were not sure  if we were playin; address: +265999045530 
+id: 1147; body: 17955648841831##30361692729693##; address: +265999920050 
+id: 1151; body: O; address: +265999920050 
+id: 1155; body: Mwatha waswela bwa??? lol; address: +265999412011 
+id: 1159; body: Iceman How ?; address: +265999045530 
+id: 1163; body: Good meeting guys we've laid the foundation let's pick up from there...Team, Communication, Unity..this is a communication test hehehe poyambira ndi apa ku ma masuka fellaz Simba; address: +265999367860 
+id: 1167; body: Come; address: +265999472800 
+id: 1171; body: boss if yo comin ths evening can u gt me a crate of special wil gv u on tha spot.; address: +265992159524 
+id: 1175; body: Correction pirates meeting is mawa Sunday 2pm; address: +265999472800 
+id: 1179; body: Gulani Nyimbo pa mtengo wa MK15. Imbani *160*1# kuti mugule Akamwile ya Fikisa, *160*2# kuti Mugule Ashawo ya Flavor, *160*8# kuti mugule Yesu Ndi Mamuna ya Favored sisters.; address: Airtel 
+id: 1183; body: Thnks; address: +265999412011 
+id: 1187; body: Dude.... Georgez number????? Now now; address: +265999412011 
+id: 1191; body: Am in class,will cal u in 15min; address: +265888203108 
+id: 1195; body: sanafike,koma ODG  ali pamalo.; address: +265992159524 
+id: 1199; body: Jst as much:-) w@ r yo plans 4 easther?; address: +265999346656 
+id: 1203; body: Zoona! Zikuyendera koma?; address: +265999346656 
+id: 1207; body: I replied thn ; address: +265999346656 
+id: 1211; body: Getn w@? ; address: +265999346656 
+id: 1215; body: Happy new year to you too; address: +265999346656 
+id: 1219; body: Enjoy 100% more browsing with Airtel Internet; Dial *301*9# for Airtel Fun with 80MB and receive another 80MBs for free for Mk250. Bundle valid for 3 days ; address: Airtel 
+id: 1223; body: Sure; address: +265999920050 
+id: 1227; body: But I prefer to get a tablet before the camera; address: +265999920050 
+id: 1231; body: No, it was on the coffee table and Joana also said she saw it but it is not there in the house, it was the weekend that Uncle Rich came to see mai up to now been looking unfortunately Desire also slept in the same room; address: +265999920050 
+id: 1235; body: Enjoy 100% more browsing with Airtel Internet; Dial *301*9# for Airtel Fun with 80MB and receive another 80MBs for free for Mk250. Bundle valid for 3 days ; address: Airtel 
+id: 1239; body: Cool mine was stolen in the house; address: +265999920050 
+id: 1243; body: Mwatha if I was looking for a digital camera very good one how much would I be looking at?; address: +265999920050 
+id: 1247; body: Its oky.ndapeza lift; address: +265999300682 
+id: 1251; body: Hey! Tanyamuka; address: +265999300682 
+id: 1255; body: Still awake? got a quick question ; address: +265999953449 
+id: 1259; body: Bundle expiry: exhausted (#111, Airtel daily, 07 Mar 17:26:00);; address: Airtel 
+id: 1263; body: Shinda man,wagawan?,wats gud ther?,bn a min.; address: +265992159524 
+id: 1267; body: Airtel 100. Send 5 SMSs today and receive MK1, 025 worth of SMSs free of charge. Thats 100 free SMS valid until midnight of the same day. ; address: Airtel 
+id: 1271; body: You have successfully added a Airtel daily bundle on 06 Mar 16:30:59 and have been credited with a bonus Airtel daily bundle.;; address: Airtel 
+id: 1275; body: Its Pacific hotel in city centre yeah.....; address: +265999412011 
+id: 1279; body: Bunda road block......; address: +265999412011 
+id: 1283; body: An hour away now; address: +265999412011 
+id: 1287; body: Eeeeh koma pililani wandilalatila... U cnt say u in BT wat wat.... Forget u en all dat ine shaaa; address: +265999412011 
+id: 1291; body: hahahaha..caught duin wat...nuthin wrong wit innocent hungin... Ma 1+1 muzipanga nokha; address: +265999412011 
+id: 1295; body: Yes she actually cme over we wer havn lunch.. Did tje intros en all; address: +265999412011 
+id: 1299; body: She was wit a boyfriend I think it looked apparent..some pakistani lookin dude; address: +265999412011 
+id: 1303; body: Hehehe...kaya..; address: +265999412011 
+id: 1307; body: eeeh guess who I met..ku Mulanje  Joy; address: +265999412011 
+id: 1311; body: Cool; address: +265999412011 
+id: 1315; body: ndi pa immigration side; address: +265999412011 
+id: 1319; body: AXA i think ndi pa city centre peoples; address: +265999412011 
+id: 1323; body: am on coach cmin to LL do u hve gas to scoop me.. ; address: +265999412011 
+id: 1327; body: Yep.....; address: +265999412011 
+id: 1331; body: Wat do u want to see; address: +265999412011 
+id: 1335; body: Do u hve any new movies?; address: +265999171467 
+id: 1339; body: Serious dawg....; address: +265999412011 
+id: 1343; body: 21 grill on the side; address: +265999412011 
+id: 1347; body: Yeah I did...eeh guy I proceeded to mulanje.... Niceeeeeeee; address: +265999412011 
+id: 1351; body: tikunyadirani bwana; address: +265992159524 
+id: 1355; body: lero tikuwotcha nyama ndiye mutha kukhala nafe,tichezelenso limodzi.; address: +265992159524 
+id: 1359; body: Fuel ali pati? ; address: +265995430981 
+id: 1363; body: matsire bwa?,nde titani?.; address: +265992159524 
+id: 1367; body: Thanks my boy, holler tomorrow!!!; address: +265888343143 
+id: 1371; body: Black Jack yakusowani bwana.; address: +265992159524 
+id: 1375; body: Ok gud to hear...; address: +265999412011 
+id: 1379; body: Wat up????? Did u go for a check up???; address: +265999412011 
+id: 1383; body:  Ha ha ha ha ha..... ; address: +265999412011 
+id: 1387; body: Yea was just thinkn; address: +265999412011 
+id: 1391; body: kapena we do salima koma gaso; address: +265999412011 
+id: 1395; body: Ndikamwe ndi ma boys; address: +265999412011 
+id: 1399; body: Am thinkin BT; address: +265999412011 
+id: 1403; body: Uncle ThamwAaa comgrats; address: +265999412011 
+id: 1407; body: No game tonight Trojans is playing ABC lero; address: +265999045530 
+id: 1411; body: Game on ! Tonight friday 6pm Pirates:::Trojans ABC; address: +265999045530 

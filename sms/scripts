@@ -1,0 +1,3 @@
+adb shell am start -a android.intent.action.SENDTO -d sms:0999411956 --es sms_body "Hello World" --ez exit_on_sent true && adb shell input keyevent 22 && adb shell input keyevent 66
+
+

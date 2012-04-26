@@ -1,18 +1,33 @@
 class SmsController < ApplicationController
   def inbox
+    #here is where we send the saved text meeage to the patient
+    number = params[:number]
+    if number.first == '0'
+      number = "+265#{number[1..number.length]}"
+    else
+      number = "+265#{number}"
+    end
+    
     sms = Sms.new()
     sms.sms_type_id = SmsType.find_by_name("Outbox")
     sms.person_id = params[:person_id]
     sms.provider_id = User.current_user
     sms.message = params[:sms]
-    sms.number = params[:number]
+    sms.number = number
     success = sms.save
 
-    #here is where we send the saved text meeage to the patient
-    `adb shell am start -a android.intent.action.SENDTO -d sms:#{sms.number} --es sms_body "#{sms.message}" --ez exit_on_sent true && adb shell input keyevent 22 && adb shell input keyevent 66`
+    `echo '#{number}:#{sms.message}' > #{RAILS_ROOT}/sms/outbox.txt`
 
+    (1.upto(1)).each do |n|
+      `adb push #{RAILS_ROOT}/sms/outbox.txt /sdcard/msgs && adb shell am start -a com.googlecode.android_scripting.action.LAUNCH_BACKGROUND_SCRIPT -n com.googlecode.android_scripting/.activity.ScriptingLayerServiceLauncher -e com.googlecode.android_scripting.extra.SCRIPT_PATH /sdcard/sl4a/scripts/sms_send.py`
+    end
     render :text => "sent #{success}" and return
   end
+ 
+ 
+  def outbox
+  end
+ 
   
   def update_sms_thred
     @sms = Sms.find(:all,:conditions =>["person_id=?",params[:id]])
