@@ -7,6 +7,10 @@ class SmsController < ApplicationController
     sms.message = params[:sms]
     sms.number = params[:number]
     success = sms.save
+
+    #here is where we send the saved text meeage to the patient
+    `adb shell am start -a android.intent.action.SENDTO -d sms:#{sms.number} --es sms_body "#{sms.message}" --ez exit_on_sent true && adb shell input keyevent 22 && adb shell input keyevent 66`
+
     render :text => "sent #{success}" and return
   end
   
