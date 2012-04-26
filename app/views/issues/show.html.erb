@@ -2,6 +2,10 @@
 <head>                                                                          
 <title>Back to care</title>                                      
 <style>   
+  .incoming_2 {
+    background-color: lightgreen !important;
+  }
+   
   .delivered_true {
     background-color: MediumAquaMarine; /*green;*/
     width: 299px;
@@ -211,7 +215,16 @@ hr {
     }});                                                                        
   }
 
-  //setInterval("updateSMSthread();",500);
+  function updateOutbox() {
+    var url = "/sms/outbox";
+    response = new Ajax.Request(url,{method:'get',onSuccess: function(transport){
+      text = transport.responseText;                                          
+      if (text.length > 0) {
+        updateSMSthread();
+      }
+    }});                                                                        
+  }
+
 </script>       
 <%
   phone_numbers = [""]
@@ -337,6 +350,10 @@ hr {
 
 
 </body>
+<script>
+  setInterval("updateOutbox();",60000);
+  updateOutbox();
+</script>
 </html>
 
 
