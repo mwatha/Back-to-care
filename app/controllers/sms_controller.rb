@@ -26,8 +26,13 @@ class SmsController < ApplicationController
  
  
   def outbox
-    (1.upto(3)).each do |n|
-    `adb shell am start -a com.googlecode.android_scripting.action.LAUNCH_BACKGROUND_SCRIPT -n com.googlecode.android_scripting/.activity.ScriptingLayerServiceLauncher -e com.googlecode.android_scripting.extra.SCRIPT_PATH /sdcard/sl4a/scripts/sms_read.py && adb pull /sdcard/msgs/inbox.txt`
+    (1.upto(1)).each do |n|
+     if RAILS_ENV == "production"
+    `adb shell am start -a com.googlecode.android_scripting.action.LAUNCH_BACKGROUND_SCRIPT -n com.googlecode.android_scripting/.activity.ScriptingLayerServiceLauncher -e com.googlecode.android_scripting.extra.SCRIPT_PATH /sdcard/sl4a/scripts/sms_read.py && sleep 30 && adb pull /sdcard/msgs/inbox.txt`
+     else
+    `adb shell am start -a com.googlecode.android_scripting.action.LAUNCH_FOREGROUND_SCRIPT -n com.googlecode.android_scripting/.activity.ScriptingLayerServiceLauncher -e com.googlecode.android_scripting.extra.SCRIPT_PATH /sdcard/sl4a/scripts/sms_read.py && sleep 15 && adb pull /sdcard/msgs/inbox.txt`
+     end
+      sleep 16
     end
 
     File.open(File.join(RAILS_ROOT, "inbox.txt"), File::RDONLY).readlines.each do |line|
