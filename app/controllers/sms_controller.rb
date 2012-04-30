@@ -14,6 +14,7 @@ class SmsController < ApplicationController
     sms.provider_id = User.current_user
     sms.message = params[:sms]
     sms.number = number
+    sms.date_created = Time.now()
     success = sms.save
 
     `echo '#{number}:#{sms.message}' > #{RAILS_ROOT}/sms/outbox.txt`
@@ -57,6 +58,7 @@ class SmsController < ApplicationController
         sms.person_id = person_id
         sms.delivered = 1
         sms.provider_id = 1
+        sms.date_created = Time.now()
         sms.message = "#{msg_id}::#{body}"
         sms.number = phone_number
         sms.save rescue false
