@@ -172,6 +172,8 @@ hr {
   }
 
   function composeSMS() {
+    document.getElementById('text_msg').disabled = false;
+    document.getElementById('send_sms_link').disabled = false;
     document.getElementById("thread").style.display="none";
     document.getElementById("thread_text").style.display="inline";
   }
@@ -183,6 +185,8 @@ hr {
   }
 
   function sendSMS() {
+    document.getElementById('text_msg').disabled = true;
+    document.getElementById('send_sms_link').disabled = true;
     var selected_phone_number = document.getElementById("phone_numbers").value;
     var sms = document.getElementById("text_msg").value;
     if (selected_phone_number.length == 0) {

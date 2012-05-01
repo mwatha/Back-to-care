@@ -236,7 +236,7 @@ module PatientService
                        :number => record[10],:status => record[11] }
         end
       when 'Missed appointments'
-        self.missed_appointment(start_date,end_date).map do |record|
+        self.missed_appointment(start_date,end_date).compact.map do |record|
           patients << {:person_id => record[0] ,:gender => record[3] ,                                            
                        :dob => record[4] , :first_name => record[1] ,                                
                        :last_name => record[2],:national_id => record[7],
@@ -316,12 +316,13 @@ module PatientService
     names = ["Died","Alive and getting treatment from another clinic",
     "Alive but stopped getting treatment","Transferred out","Moved to another location"]
     trace_outcome_ids = TraceOutcomeType.find(:all,
-      :conditions =>["name IN(?)",names]).collect{|t|t.id}.join(',')
+      :conditions =>["name IN(?)",names]).collect{|t|t.id}
+      #AND tc.trace_outcome_id NOT IN (#{trace_outcome_ids})
 
     records = Observation.find_by_sql("SELECT e.patient_id,n.given_name,n.family_name, 
 p.gender, p.birthdate , DATE(e.encounter_datetime) AS visit_date,
 #{db['database']}.prescribed_days_missed(DATE(orders.start_date),DATE('#{end_date}'),equivalent_daily_dose,quantity) AS days_over_due,
-identifier AS national_id
+identifier AS national_id,tc.trace_outcome_id tc_id
 FROM obs 
 INNER JOIN encounter e ON e.encounter_id = obs.encounter_id 
 AND e.encounter_datetime=(SELECT MAX(x.encounter_datetime) FROM encounter x WHERE x.patient_id=e.patient_id)
@@ -333,13 +334,14 @@ INNER JOIN person_name n ON p.person_id=n.person_id
 INNER JOIN patient_identifier i ON i.patient_id = e.patient_id 
 AND i.identifier_type = (SELECT patient_identifier_type_id 
 FROM patient_identifier_type pi WHERE pi.name = 'National id')
-INNER JOIN #{db['database']}.patient_trace_outcome tc ON tc.patient_id = e.patient_id 
-AND tc.trace_outcome_id NOT IN (#{trace_outcome_ids})
+LEFT JOIN #{db['database']}.patient_trace_outcome tc ON tc.patient_id = e.patient_id 
 WHERE e.encounter_type = #{dispensing} and obs.concept_id =  #{amount_dispensed_concept_id}
 GROUP BY e.patient_id
 HAVING days_over_due >= 21
 ORDER BY e.encounter_datetime DESC,e.date_created DESC")   
       (records || []).collect do |r|
+        trace_outcome_id = r.tc_id.to_i rescue 0
+        next if trace_outcome_ids.include?(trace_outcome_id)
         [r.patient_id,r.given_name , r.family_name , r.gender,
          r.birthdate , r.visit_date , r.days_over_due ,r.national_id]
       end
