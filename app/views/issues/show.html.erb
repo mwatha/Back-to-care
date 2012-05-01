@@ -265,12 +265,20 @@ hr {
       </div>
       <div class="sms_string" id="thread">
         <table id="sent_msg">
-          <% @sms.map do |sms| %>
+          <% (@sms.map || []).each do |sms| 
+        
+             if sms.message.match(/::/)                                                
+               message = sms.message.split("::")[1].to_s rescue sms.message            
+             else                                                                      
+               message = sms.message                                                   
+             end 
+          
+          %>
           <tr>
             <th class="delivered_<%=sms.delivered%>"><%=sms.number%> (<%=sms.date_created.to_date%>)</th>
           </tr>
           <tr>
-            <td class='line_bottom'><%=sms.message%></span>
+            <td class='line_bottom'><%= message %></span>
             </td>                                   
           </tr>
           <%end%>
