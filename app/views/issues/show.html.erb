@@ -312,7 +312,7 @@ hr {
     <%=@demographics[:last_visit_date].strftime('%A %d %B %Y') rescue nil%></p>
     <p class="clinic_information">Appointment date given:&nbsp;
     <%=@demographics[:latest_appointment_date_given].strftime('%A %d %B %Y') rescue nil%></p>
-    <p class="clinic_information">Latest Outcome:&nbsp;
+    <p class="clinic_information">Latest traced Outcome:&nbsp;
       <select name="traced_outcome" onchange="updateTracedOutcome(this.value)" id="traced_outcome">
         <option value="<%=@demographics[:traced_outcome].id rescue nil%>"><%=@demographics[:traced_outcome].name rescue nil %></option>
         <%(@traced_outcomes || []).each do |outcome| %>
@@ -320,7 +320,7 @@ hr {
         <%end%>
       </select>
    </p>
-    <p class="clinic_information">Latest traced Outcome:&nbsp;<%=@demographics[:latest_state]%></p>
+    <p class="clinic_information">Latest Outcome:&nbsp;<%=@demographics[:latest_state]%></p>
     <!--p class="clinic_information">Latest regimen given:&nbsp;<%#=@demographics[:last_regimen_given]%></p-->
     <p class="clinic_information" style="color: #EE8206;font-family: Tahoma,Verdana,Arial;">Latest drugs given:</p>
     <% (@demographics[:last_drugs_given] || {} ).map do |name , values|

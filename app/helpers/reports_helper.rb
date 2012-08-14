@@ -20,14 +20,14 @@ EOF
     patients.each do | demographics |
       @html+=<<EOF
 <tr class="patient_info">                                                       
-  <td>#{"&nbsp;"*2}#{demographics[:national_id]}</td>                                                      
+   <td id='#{demographics[:person_id]}' class='patient_ids'>#{"&nbsp;"*2}#{demographics[:national_id]}</td>                                                      
   <td>#{demographics[:first_name]}</td>                                                                     
   <td>#{demographics[:last_name]}</td>                                                                     
   <td>#{demographics[:gender]}</td>                                                                     
   <td>#{demographics[:dob]}</td>                                                                     
   <td>#{demographics[:last_visit_date]}</td>                                                                     
   <td><a href="/issues/show?id=#{demographics[:person_id]}&title=#{title}" class="show_details">Show</a>|
-  <a href="#" class="show_details">Send sms</a>
+  <a href="javascript:sendText(#{demographics[:person_id]})" class="show_details">Send sms</a>
   </td>                                                                     
 </tr>                                                                           
 EOF
@@ -60,7 +60,7 @@ EOF
     patients.each do | demographics |
       @html+=<<EOF
 <tr class="patient_info" style="vertical-align: top;">                                                       
-  <td>#{"&nbsp;"*2}#{demographics[:national_id]}</td>                                                      
+  <td id='#{demographics[:person_id]}' class='patient_ids'>#{"&nbsp;"*2}#{demographics[:national_id]}</td>                                                      
   <td>#{demographics[:first_name]}</td>                                                                     
   <td>#{demographics[:last_name]}</td>                                                                     
   <td>#{demographics[:gender]}</td>                                                                     
@@ -71,7 +71,7 @@ EOF
   <td>#{demographics[:send_date].to_date rescue nil}</td>                                                                     
   <td>#{demographics[:status]}</td>                                                                     
   <td><a href="/issues/show?id=#{demographics[:person_id]}&title=#{title}" class="show_details">Show</a>|
-  <a href="#" class="show_details">Send sms</a>
+  <a href="javascript:sendText(#{demographics[:person_id]})" class="show_details">Send sms</a>
   </td>                                                                     
 </tr>                                                                           
 EOF
@@ -102,7 +102,7 @@ EOF
     patients.each do | demographics |                                           
       @html+=<<EOF                                                              
 <tr class="patient_info">                                                       
-  <td>#{"&nbsp;"*2}#{demographics[:national_id]}</td>                                                      
+  <td id='#{demographics[:person_id]}' class='patient_ids'>#{"&nbsp;"*2}#{demographics[:national_id]}</td>                                                      
   <td>#{demographics[:first_name]}</td>                                                                     
   <td>#{demographics[:last_name]}</td>                                                                     
   <td>#{demographics[:gender]}</td>                                                                     
@@ -110,7 +110,7 @@ EOF
   <td>#{demographics[:outcome]}</td>                                                                     
   <td>#{demographics[:outcome_date]}</td>                                                                     
   <td><a href="/issues/show?id=#{demographics[:person_id]}&title=#{title}" class="show_details">Show</a>|
-  <a href="#" class="show_details">Send sms</a>
+  <a href="javascript:sendText(#{demographics[:person_id]})" class="show_details">Send sms</a>
   </td>                                                                         
 </tr>                                                                           
 EOF

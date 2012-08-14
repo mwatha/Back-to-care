@@ -24,7 +24,38 @@ class SmsController < ApplicationController
     end
     render :text => "sent #{success}" and return
   end
- 
+
+  def send_all
+    person = Person.find(params[:patient_id]) 
+    number = PatientService.phone_numbers(person,"Cell phone number").to_i.to_s rescue nil
+    if number.first == '0'
+      number = "+265#{number[1..number.length]}"
+    else
+      number = "+265#{number}"
+    end unless number.blank?
+
+    if number.blank?
+      render :text => "not sent ....." and return
+    else
+      
+      sms = Sms.new()
+      sms.sms_type_id = SmsType.find_by_name("Outbox")
+      sms.person_id = person.id
+      sms.provider_id = User.current_user
+      sms.message = params[:sms]
+      sms.number = number
+      sms.date_created = Time.now()
+      success = sms.save
+
+      `echo '#{number}:#{sms.message}' > #{RAILS_ROOT}/sms/outbox.txt`
+
+      (1.upto(1)).each do |n|
+        `adb push #{RAILS_ROOT}/sms/outbox.txt /sdcard/msgs && adb shell am start -a com.googlecode.android_scripting.action.LAUNCH_BACKGROUND_SCRIPT -n com.googlecode.android_scripting/.activity.ScriptingLayerServiceLauncher -e com.googlecode.android_scripting.extra.SCRIPT_PATH /sdcard/sl4a/scripts/sms_send.py`
+      end
+
+      render :text => "sent ....." and return
+    end
+  end 
  
   def outbox
     (1.upto(1)).each do |n|

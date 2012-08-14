@@ -2,12 +2,45 @@
 <head>                                                                          
 <title>Back to care:<%=@title%></title>                                      
 <style>   
+  .popUpLinks {
+    color: #555555;
+    font-size: 0.8em;
+    padding-right: 10px;
+    position: absolute;
+    right: 0px;
+    font-color: black;
+  }
+
+  #popUpCancel {
+    right: 50px;
+  }
+ 
+  #msg {
+    height: 70px;
+    width: 350px;
+  }
+  .questionLayer {
+    width: auto !important;
+    height: auto !important;
+  }
+
+  #send-to-all {
+    color: #555555;
+    font-size: 0.8em;
+    padding-right: 30px;
+    position: absolute;
+    text-align: left;
+    right: 0px;
+    font-color: black;
+  }
+ 
   #results-info {
     color: #555555;
     font-size: 0.8em;
     padding-left: 30px;
     position: absolute;
     text-align: left;
+    width: 97%;
   }
  
   ul {
@@ -174,6 +207,11 @@
 <%= stylesheet_link_tag "demo_table_jui" %>                                     
 <%= stylesheet_link_tag "demo_page" %>
 
+
+<%= stylesheet_link_tag "disable_page" %>                                              
+<%= javascript_include_tag "disable_page"%>
+
+
 <script>       
   function dataT(){                                                               
    $('#patient_data').dataTable(); 
@@ -197,8 +235,81 @@
  setInterval("upDateResultsInfo();",300);                                      
                                                                                 
   function upDateResultsInfo() {                                                
+    var number_of_patients = parseInt(document.getElementById("patient_data_info").innerHTML.substring(8,9));
     document.getElementById("results-info").innerHTML = document.getElementById("patient_data_info").innerHTML;
+    if (number_of_patients > 0) {
+      document.getElementById("results-info").innerHTML += "<span class='send-to-all'>";
+      document.getElementById("results-info").innerHTML += "<a href='javascript:sendAll()' id='send-to-all'>Send to all</a";
+      document.getElementById("results-info").innerHTML += "</span>";
+    }
   } 
+
+  function sendAll() {
+    showLayer();
+
+    popUp = document.getElementById("question");
+    popUp.innerHTML = "<textarea id='msg'></textarea>";
+    popUp.innerHTML += "<br /><a id='popUpCancel' class='popUpLinks' href='javascript:hideLayer();'>Cancel</a>";
+    popUp.innerHTML += "&nbsp;<a class='popUpLinks' href='javascript:sendMSG();'>Send</a>";
+  }
+
+
+  function sendText(patient_id) {
+    showLayer();
+
+    popUp = document.getElementById("question");
+    popUp.innerHTML = "<textarea id='msg'></textarea>";
+    popUp.innerHTML += "<br /><a id='popUpCancel' class='popUpLinks' href='javascript:hideLayer();'>Cancel</a>";
+    popUp.innerHTML += "&nbsp;<a class='popUpLinks' href='javascript:sendOne(" + patient_id + ");'>Send</a>";
+  }
+
+/* ............................................................................ */
+
+
+
+var ids = {};
+var message = null;
+ 
+function sendMSG() {
+  var all_selected = document.getElementsByClassName('patient_ids');
+  message = document.getElementById('msg').value; 
+
+  for(i=0;i<all_selected.length;i++) {
+    ids[all_selected[i].id] = all_selected[i].id;
+  }
+  doDelayLoop();
+}
+
+function doDelayLoop() {
+  for(id in ids){
+    performYourActions(id);
+    break
+  }
+  hideLayer();
+}
+  
+function performYourActions(patient_id) {
+  var url = "/sms/send_all?patient_id=" + patient_id + "&sms=" + message;                   
+  transport = new Ajax.Request(url,{method:'get',onSuccess: function(transport){
+    if (transport.responseText) {
+      delete ids[patient_id];
+      doDelayLoop();
+    }
+  }});                                                                        
+}
+
+function sendOne(patient_id) {
+  message = document.getElementById('msg').value; 
+  var url = "/sms/send_all?patient_id=" + patient_id + "&sms=" + message;                   
+  transport = new Ajax.Request(url,{method:'get',onSuccess: function(transport){
+    if (transport.responseText) {
+      hideLayer();
+    }
+  }});                                                                        
+}
+
+
+
 </script>                                                               
 </head>                                                                         
                                                                                 
@@ -222,6 +333,9 @@ Reports::<%=@type%>
 </div>
 <div id="results-info">
 </div>
+
+<div id="shadow" class="opaqueLayer"> </div>                                    
+<div id="question" class="questionLayer" style="font-size: 0.9em;">
 
 </body>
 </html>
