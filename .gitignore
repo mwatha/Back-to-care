@@ -9,6 +9,7 @@ public/reports
 *.lbl
 .*swp
 *.swo
+*.lock
 callibrate*
 doc/*
 doc/plugins

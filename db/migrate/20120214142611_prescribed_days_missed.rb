@@ -1,4 +1,4 @@
-class PrescribedDaysMissedFunction < ActiveRecord::Migration
+class PrescribedDaysMissed < ActiveRecord::Migration
   def self.up
 ActiveRecord::Base.connection.execute <<EOF
 DROP FUNCTION IF EXISTS prescribed_days_missed;

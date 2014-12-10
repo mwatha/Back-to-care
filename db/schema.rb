@@ -9,16 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211154331) do
+ActiveRecord::Schema.define(:version => 20120214142611) do
 
-  create_table "report_types", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "reports", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "patient_trace_outcome", :force => true do |t|
+    t.integer  "patient_id"
+    t.integer  "trace_outcome_id"
+    t.date     "outcome_date"
+    t.integer  "creator"
+    t.datetime "date_created",     :default => '2014-12-10 16:21:50'
+    t.boolean  "retired",          :default => false
+    t.integer  "retired_by"
+    t.datetime "retired_datetime"
+    t.string   "retired_reason"
   end
 
   create_table "sms", :force => true do |t|
@@ -28,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20120211154331) do
     t.text     "message"
     t.integer  "number"
     t.boolean  "delivered",    :default => false
-    t.datetime "date_created", :default => '2012-02-14 12:51:17'
+    t.datetime "date_created", :default => '2014-12-10 16:21:50'
     t.boolean  "voided",       :default => false
     t.integer  "voided_by"
     t.datetime "date_voided"
@@ -37,8 +39,21 @@ ActiveRecord::Schema.define(:version => 20120211154331) do
   create_table "sms_type", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "date_created",     :default => '2012-02-14 12:51:17'
+    t.integer  "creator"
+    t.datetime "date_created",     :default => '2014-12-10 16:21:50'
     t.boolean  "retired",          :default => false
+    t.integer  "retired_by"
+    t.datetime "retired_datetime"
+    t.string   "retired_reason"
+  end
+
+  create_table "trace_outcome_type", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "creator"
+    t.datetime "date_created",     :default => '2014-12-10 16:21:50'
+    t.boolean  "retired",          :default => false
+    t.integer  "retired_by"
     t.datetime "retired_datetime"
     t.string   "retired_reason"
   end
